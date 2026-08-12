@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DEADEYE X GAMING | Official</title>
+<meta name="description" content="Official DEADEYE X GAMING website — Minecraft, Bandhilki SMP, livestreams, gaming and DEADEYE'S COMMUNITY.">
+<meta name="author" content="Vaibhav — Deadeye">
+<meta name="theme-color" content="#07070a">
+
+<meta property="og:title" content="DEADEYE X GAMING">
+<meta property="og:description" content="Minecraft • Bandhilki SMP • Gaming • Community">
+<meta property="og:type" content="website">
+<meta property="og:image" content="deadeye-logo.png">
+
+<link rel="icon" type="image/png" href="deadeye-logo.png">
+
+<style>
+:root{
+    --bg:#060609;
+    --panel:#0d0d12;
+    --panel2:#111117;
+    --text:#fff;
+    --muted:#8d8d98;
+    --red:#e00020;
+    --red2:#ff1744;
+    --line:rgba(255,255,255,.09);
+    --purple:#9a6cff;
+    --max:1120px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+html{scroll-padding-top:90px}
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+    line-height:1.5;
+}
+body::before,body::after{
+    content:"";position:fixed;pointer-events:none;z-index:-3;
+    width:520px;height:520px;border-radius:50%;
+}
+body::before{top:-300px;left:-260px;background:radial-gradient(circle,rgba(224,0,32,.10),transparent 68%)}
+body::after{right:-300px;bottom:-300px;background:radial-gradient(circle,rgba(100,60,255,.07),transparent 68%)}
+::selection{background:var(--red);color:#fff}
+
+/* NAV */
+.nav{
+    position:fixed;top:0;left:0;width:100%;height:76px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 6%;
+    background:rgba(6,6,9,.96);
+    border-bottom:1px solid var(--line);
+    z-index:1000;
+    transition:.25s;
+}
+.nav.scrolled{
+    background:rgba(6,6,9,.96);
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+.brand{
+    display:flex;align-items:center;gap:10px;
+    color:#fff;text-decoration:none;
+    font-size:18px;font-weight:900;letter-spacing:1px;
+}
+.brand img{
+    width:42px;height:42px;border-radius:50%;object-fit:cover;
+    transition:.25s;
+}
+.brand:hover img{transform:scale(1.07);box-shadow:0 0 22px rgba(224,0,32,.28)}
+.brand b{color:var(--red)}
+.nav-links{display:flex;list-style:none;gap:25px}
+.nav-links a{
+    color:#90909a;text-decoration:none;font-size:13px;font-weight:800;
+    transition:.2s;
+}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.menu{
+    display:none;
+    width:42px;height:42px;border-radius:10px;
+    border:1px solid #29292f;background:#111116;color:#fff;
+    font-size:20px;cursor:pointer;
+}
+
+/* GENERAL */
+section{padding:110px 6%;position:relative}
+.container{max-width:var(--max);margin:auto}
+.section-head{text-align:center;margin-bottom:48px}
+.kicker{
+    color:#ff5b72;font-size:11px;font-weight:900;
+    letter-spacing:2px;text-transform:uppercase;
+}
+.section-head h2{
+    font-size:clamp(32px,5vw,48px);
+    line-height:1.05;margin-top:9px;letter-spacing:-1.5px;
+}
+.section-head p{color:#777;margin-top:12px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:48px;padding:0 20px;border-radius:11px;
+    text-decoration:none;font-size:13px;font-weight:900;
+    transition:.25s;border:1px solid transparent;
+}
+.btn:hover{transform:translateY(-3px)}
+.btn-red{
+    color:#fff;background:linear-gradient(135deg,var(--red),var(--red2));
+    box-shadow:0 10px 30px rgba(224,0,32,.18);
+}
+.btn-dark{color:#fff;background:#141419;border-color:#2a2a31}
+.btn-purple{color:#fff;background:#17121f;border-color:#403252}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;align-items:center;
+    padding-top:130px;overflow:hidden;
+}
+.hero::before{
+    content:"";
+    position:absolute;width:700px;height:700px;
+    left:50%;top:48%;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(224,0,32,.12),transparent 67%);
+    pointer-events:none;
+}
+.hero-grid{
+    width:100%;max-width:var(--max);margin:auto;
+    display:grid;grid-template-columns:1.05fr .95fr;
+    gap:40px;align-items:center;
+}
+.hero-copy{position:relative;z-index:2}
+.hero-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:9px 16px;border-radius:999px;
+    color:#ff6075;background:rgba(224,0,32,.07);
+    border:1px solid rgba(224,0,32,.4);
+    font-size:12px;font-weight:900;letter-spacing:1px;
+}
+.hero h1{
+    margin-top:22px;
+    font-size:clamp(58px,8vw,105px);
+    line-height:.86;letter-spacing:-6px;
+    font-weight:950;
+}
+.hero h1 span{
+    color:var(--red2);
+    text-shadow:0 0 35px rgba(224,0,32,.18);
+}
+.hero-desc{
+    max-width:650px;color:#999;font-size:17px;
+    line-height:1.75;margin:28px 0;
+}
+.hero-stats{
+    display:flex;gap:10px;flex-wrap:wrap;margin-top:25px;
+}
+.stat{
+    padding:10px 13px;border-radius:10px;
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--line);
+    color:#999;font-size:11px;font-weight:800;
+}
+.stat strong{color:#fff}
+.hero-visual{
+    min-height:620px;position:relative;
+    display:flex;align-items:center;justify-content:center;
+    contain:layout paint;
+}
+.hero-aura{
+    position:absolute;
+    width:560px;height:560px;border-radius:50%;
+    background:radial-gradient(circle,rgba(224,0,32,.16) 0%,rgba(224,0,32,.07) 30%,rgba(100,60,255,.035) 48%,transparent 70%);
+    pointer-events:none;
+}
+.hero-aura::after{
+    content:"";position:absolute;inset:24%;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.035),transparent 68%);
+}
+.hero-skin{
+    position:relative;z-index:2;
+    width:610px;height:720px;object-fit:contain;
+    transform:translate3d(0,0,0);
+    animation:skinFloat 7s ease-in-out infinite;
+    will-change:transform;
+}
+@keyframes skinFloat{
+    0%,100%{transform:translate3d(0,0,0)}
+    50%{transform:translate3d(0,-8px,0)}
+}
+.hero-tag{
+    position:absolute;z-index:3;bottom:65px;right:25px;
+    padding:12px 15px;border-radius:13px;
+    background:rgba(10,10,14,.88);border:1px solid var(--line);
+    backdrop-filter:blur(10px);
+    font-size:11px;font-weight:900;
+}
+.hero-tag span{display:block;color:#777;margin-top:3px;font-weight:600}
+
+/* CARDS */
+.card-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+}
+.card{
+    padding:28px;border-radius:20px;
+    background:linear-gradient(145deg,#121218,#0b0b0f);
+    border:1px solid var(--line);
+    box-shadow:0 15px 45px rgba(0,0,0,.15);
+    transition:.3s;
+}
+.card:hover{transform:translateY(-7px);border-color:rgba(224,0,32,.38)}
+.card-icon{font-size:30px;margin-bottom:18px}
+.card h3{font-size:19px;margin-bottom:9px}
+.card p{color:#7e7e88;font-size:14px;line-height:1.7}
+
+/* ABOUT */
+.about-box{
+    display:grid;grid-template-columns:250px 1fr;
+    gap:50px;align-items:center;
+    padding:48px;border-radius:27px;
+    background:linear-gradient(135deg,rgba(224,0,32,.09),#0c0c11 55%);
+    border:1px solid var(--line);
+}
+.about-img{
+    width:100%;height:320px;object-fit:contain;
+    filter:drop-shadow(0 18px 30px rgba(0,0,0,.5));
+}
+.about-name{font-size:42px;line-height:1}
+.about-role{color:var(--red2);font-weight:900;margin:12px 0 18px}
+.staff{
+    display:inline-flex;padding:8px 13px;border-radius:999px;
+    color:#ff6b7e;background:rgba(224,0,32,.07);
+    border:1px solid rgba(224,0,32,.25);
+    font-size:11px;font-weight:900;letter-spacing:.8px;
+    margin-bottom:20px;
+}
+.about-copy{color:#999;line-height:1.85}
+.about-copy strong{color:#fff}
+
+/* YOUTUBE */
+.youtube-box{
+    position:relative;overflow:hidden;
+    padding:55px;text-align:center;border-radius:27px;
+    background:radial-gradient(circle at 85% 15%,rgba(224,0,32,.12),transparent 30%),
+               linear-gradient(145deg,#121217,#09090d);
+    border:1px solid var(--line);
+}
+.youtube-box::after{
+    content:"▶";position:absolute;right:25px;top:-15px;
+    font-size:150px;font-weight:900;color:rgba(224,0,32,.025);
+}
+.youtube-box>*{position:relative;z-index:1}
+.sub-count{
+    font-size:clamp(48px,7vw,72px);font-weight:950;
+    color:var(--red2);margin:16px 0 0;
+    text-shadow:0 0 30px rgba(224,0,32,.18);
+}
+.sub-label{
+    color:#777;font-size:11px;font-weight:900;
+    letter-spacing:2px;margin-bottom:20px;
+}
+.youtube-box p{color:#888;max-width:650px;margin:0 auto 25px;line-height:1.75}
+.chips{
+    display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:20px 0 25px;
+}
+.chip{
+    padding:8px 12px;border-radius:999px;
+    background:#17171c;border:1px solid #29292f;
+    color:#aaa;font-size:11px;font-weight:800;
+}
+
+/* COMMUNITY */
+.community-box{
+    display:grid;grid-template-columns:260px 1fr;
+    gap:45px;align-items:center;
+    padding:45px;border-radius:27px;
+    background:linear-gradient(135deg,rgba(224,0,32,.08),#0b0b10 60%);
+    border:1px solid var(--line);
+}
+.community-logo{
+    width:260px;height:260px;object-fit:cover;
+    border-radius:24px;
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+}
+.community-box h3{font-size:35px;margin-bottom:14px}
+.community-box p{color:#999;line-height:1.8;margin-bottom:22px}
+.feature-list{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.feature-list span{
+    padding:8px 10px;border-radius:9px;
+    background:#15151a;border:1px solid #28282e;
+    color:#aaa;font-size:11px;font-weight:800;
+}
+
+/* SERVER */
+.server{
+    text-align:center;max-width:900px;margin:auto;
+    padding:60px 30px;border-radius:27px;
+    background:linear-gradient(145deg,#111116,#09090d);
+    border:1px solid var(--line);position:relative;overflow:hidden;
+}
+.server::before{
+    content:"";position:absolute;width:280px;height:280px;
+    left:-140px;bottom:-160px;border-radius:50%;
+    background:rgba(224,0,32,.09);filter:blur(45px);
+}
+.server>*{position:relative;z-index:1}
+.server-icon{font-size:55px;margin-bottom:12px}
+.server h3{font-size:34px}
+.status{
+    display:inline-flex;margin:15px 0;padding:8px 15px;border-radius:999px;
+    color:#ffb020;background:rgba(255,160,0,.07);
+    border:1px solid rgba(255,160,0,.25);
+    font-size:12px;font-weight:900;
+}
+.server p{color:#777;max-width:600px;margin:auto}
+
+/* BANDHILKI */
+.smp-box{
+    display:grid;grid-template-columns:280px 1fr;
+    gap:45px;align-items:center;
+    padding:42px;border-radius:28px;
+    background:linear-gradient(135deg,rgba(113,66,190,.13),#0b0b10 65%);
+    border:1px solid rgba(155,108,255,.18);
+    overflow:hidden;position:relative;
+}
+.smp-box::after{
+    content:"";position:absolute;width:300px;height:300px;
+    right:-150px;top:-150px;border-radius:50%;
+    background:rgba(120,60,255,.1);filter:blur(60px);
+}
+.smp-logo{
+    width:260px;height:260px;object-fit:contain;
+    margin:auto;position:relative;z-index:1;
+    filter:drop-shadow(0 20px 30px rgba(0,0,0,.45));
+}
+.smp-content{position:relative;z-index:1}
+.smp-kicker{
+    display:inline-flex;padding:7px 12px;border-radius:999px;
+    color:#c8a9ff;background:rgba(120,60,255,.08);
+    border:1px solid rgba(155,108,255,.25);
+    font-size:11px;font-weight:900;letter-spacing:1px;
+}
+.smp-content h3{font-size:42px;margin:14px 0 10px}
+.smp-content h3 span{color:#c59cff}
+.smp-content p{color:#999;line-height:1.8;margin-bottom:20px}
+.smp-meta{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
+.smp-meta span{
+    padding:8px 11px;border-radius:9px;
+    background:#15131b;border:1px solid #2b2534;
+    color:#aaa;font-size:11px;font-weight:800;
+}
+
+/* EVENTS */
+.event-icon{font-size:35px}
+.event h3{margin:15px 0 7px}
+.event p{color:#777;font-size:14px}
+
+/* SOCIALS */
+.socials{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+/* FOOTER */
+footer{
+    padding:50px 20px;text-align:center;
+    border-top:1px solid var(--line);
+    background:linear-gradient(180deg,transparent,rgba(224,0,32,.025));
+    color:#666;
+}
+footer strong{color:#fff}
+footer span{color:var(--red2)}
+.footer-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:17px}
+.footer-links a{color:#777;text-decoration:none;font-size:12px;font-weight:800}
+.footer-links a:hover{color:#fff}
+
+/* UTILITY */
+.progress{
+    position:fixed;top:0;left:0;width:0;height:2px;
+    background:var(--red2);box-shadow:0 0 12px rgba(224,0,32,.5);
+    z-index:2000;
+}
+.top{
+    position:fixed;right:22px;bottom:22px;
+    width:44px;height:44px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;background:#15151a;border:1px solid #2b2b31;
+    text-decoration:none;font-weight:900;font-size:20px;
+    opacity:0;visibility:hidden;transform:translateY(10px);
+    transition:.25s;z-index:900;
+}
+.top.show{opacity:1;visibility:visible;transform:none}
+.top:hover{background:var(--red);border-color:var(--red);transform:translateY(-3px)}
+.reveal{
+    opacity:0;transform:translateY(18px);
+    transition:opacity .65s ease,transform .65s ease;
+}
+.reveal.visible{opacity:1;transform:none}
+
+
+/* LIGHTWEIGHT INTERACTIONS */
+.nav-links a{position:relative;padding:9px 2px}
+.nav-links a::after{
+    content:"";position:absolute;left:0;right:0;bottom:1px;height:2px;border-radius:99px;
+    background:linear-gradient(90deg,var(--red),var(--red2));
+    transform:scaleX(0);transform-origin:center;transition:transform .22s ease;
+}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{color:#fff}
+.btn{transition:transform .2s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.card,.event,.about-box,.community-box,.smp-box,.youtube-box,.server{
+    transform:translateZ(0);
+}
+@media(max-width:900px){
+    .hero-aura{width:390px;height:390px}
+    .hero-skin{width:470px;height:570px}
+}
+@media(max-width:520px){
+    .hero-aura{width:320px;height:320px}
+    .hero-skin{width:390px;height:500px}
+}
+
+
+/* ===== SMOOTH POP ONLY ===== */
+.card,
+.event,
+.server,
+.about-box,
+.community-box,
+.youtube-box{
+    position:relative;
+    overflow:hidden;
+    transform:translate3d(0,0,0) scale(1);
+    will-change:transform;
+    transition:
+        transform 0.85s cubic-bezier(0.16,1,0.3,1),
+        border-color 0.85s ease,
+        box-shadow 0.85s ease;
+}
+
+/* Smooth POP only — no shine / hover sweep */
+.card:hover,
+.event:hover{
+    transform:translate3d(0,-7px,0) scale(1.012);
+    border-color:rgba(224,0,32,.58);
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.28),
+        0 0 18px rgba(224,0,32,.07);
+}
+
+.server:hover,
+.about-box:hover,
+.community-box:hover,
+.youtube-box:hover{
+    transform:translate3d(0,-4px,0) scale(1.006);
+    border-color:rgba(224,0,32,.45);
+    box-shadow:0 16px 36px rgba(0,0,0,.23);
+}
+
+/* Keep content stable */
+.card > *,
+.event > *,
+.server > *,
+.about-box > *,
+.community-box > *,
+.youtube-box > *{
+    position:relative;
+    z-index:1;
+}
+
+@media(prefers-reduced-motion:reduce){
+    .card,
+    .event,
+    .server,
+    .about-box,
+    .community-box,
+    .youtube-box{
+        transition:none;
+        transform:none !important;
+        will-change:auto;
+    }
+}
+/* RESPONSIVE */
+@media(max-width:900px){
+    .nav{padding:0 5%}
+    .nav-links{
+        position:absolute;left:5%;right:5%;top:76px;
+        display:none;flex-direction:column;gap:0;
+        background:#0b0b10;border:1px solid #29292f;
+        border-radius:15px;overflow:hidden;
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{display:block;padding:15px 18px;border-bottom:1px solid #202027}
+    .menu{display:block}
+    .hero-grid{grid-template-columns:1fr;text-align:center}
+    .hero-desc{margin-left:auto;margin-right:auto}
+    .btns{justify-content:center}
+    .hero-visual{min-height:430px;margin-top:-20px}
+        .hero-skin{width:380px;height:470px}
+    .hero-tag{right:7%;bottom:20px}
+    .card-grid{grid-template-columns:1fr}
+    .about-box,.community-box,.smp-box{grid-template-columns:1fr;text-align:center}
+    .about-img{height:260px}
+    .community-logo,.smp-logo{margin:auto}
+    .feature-list,.smp-meta{justify-content:center}
+    .smp-content h3{font-size:34px}
+    .socials{justify-content:center}
+}
+@media(max-width:520px){
+    section{padding:80px 5%}
+    .brand{font-size:14px}
+    .brand img{width:36px;height:36px}
+    .hero h1{font-size:54px;letter-spacing:-4px}
+    .hero-visual{min-height:370px}
+        .hero-skin{width:320px;height:410px}
+    .hero-tag{font-size:9px}
+    .about-box,.community-box,.smp-box{padding:28px 20px}
+    .youtube-box{padding:40px 20px}
+    .community-logo{width:200px;height:200px}
+    .smp-logo{width:210px;height:210px}
+    .btn{width:100%}
+    .btns,.bandhilki-actions{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+        scroll-behavior:auto !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+    }
+}
+</style>
+<!-- Performance-first build: no heavy blur filters, no particle animation, no click ripple. -->
+</head>
+
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="nav" id="nav">
+    <a class="brand" href="#home">
+        <img src="deadeye-logo.png" alt="DEADEYE X GAMING logo">
+        DEADEYE <b>X</b> GAMING
+    </a>
+
+    <button class="menu" id="menu" aria-label="Open navigation">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#youtube">YouTube</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#minecraft">Minecraft</a></li>
+        <li><a href="#bandhilki">Bandhilki SMP</a></li>
+        <li><a href="#events">Events</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-grid">
+
+        <div class="hero-copy reveal">
+            <div class="hero-badge">✦ DEADEYE X GAMING</div>
+
+            <h1>
+                PLAY.<br>
+                CONNECT.<br>
+                <span>CREATE.</span>
+            </h1>
+
+            <p class="hero-desc">
+                Welcome to the official world of Deadeye —
+                Minecraft, livestreams, gaming, community events
+                and unforgettable moments.
+            </p>
+
+            <div class="btns">
+                <a class="btn btn-red" href="https://discord.gg/PNeCwRrtMS" target="_blank" rel="noopener noreferrer">💬 Join Discord</a>
+                <a class="btn btn-dark" href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7" target="_blank" rel="noopener noreferrer">▶ Visit YouTube</a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">🎮 <strong>Minecraft Creator</strong></div>
+                <div class="stat">🔴 <strong>Livestreams</strong></div>
+                <div class="stat">👥 <strong>3,000+ Subs</strong></div>
+            </div>
+        </div>
+
+        <div class="hero-visual reveal">
+            <div class="hero-aura"></div>
+            <img class="hero-skin" src="deadeye-skin.png" alt="Deadeye Minecraft character">
+            <div class="hero-tag">
+                👑 DEADEYE
+                <span>Gaming • Community • Minecraft</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="kicker">About the creator</div>
+            <h2>Meet Deadeye</h2>
+            <p>The person behind DEADEYE X GAMING.</p>
+        </div>
+
+        <div class="about-box reveal">
+            <img class="about-img" src="deadeye-skin.png" alt="Vaibhav Deadeye">
+
+            <div>
+                <div class="about-name">Vaibhav</div>
+                <div class="about-role">DEADEYE X GAMING</div>
+
+                <div class="staff">👑 BANDHILKI SMP STAFF MEMBER</div>
+
+                <p class="about-copy">
+                    I'm Vaibhav, better known online as <strong>Deadeye</strong>.
+                    I'm a gamer, content creator and community builder who enjoys
+                    Minecraft, gaming, livestreaming and creating memorable moments
+                    with people.
+                    <br><br>
+                    Outside gaming, I'm a <strong>pharmacist</strong> and I also run
+                    my own medical shop.
+                    <br><br>
+                    I'm also part of the <strong>Bandhilki SMP staff team</strong>,
+                    contributing to the SMP and its community.
+                    <br><br>
+                    Gaming is where I create, connect and have fun with the community.
+                    <br><br>
+                    <strong>The goal is simple — build something people want to be part of.</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- YOUTUBE -->
+<section id="youtube">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="kicker">Content creator</div>
+            <h2>DEADEYE X GAMING</h2>
+            <p>Minecraft, gaming & SMP livestreams.</p>
+        </div>
+
+        <div class="youtube-box reveal">
+            <h2>Road to the next milestone 🚀</h2>
+
+            <div class="sub-count">3,000+</div>
+            <div class="sub-label">YOUTUBE SUBSCRIBERS</div>
+
+            <div class="chips">
+                <span class="chip">⛏️ Minecraft</span>
+                <span class="chip">🔴 Live Streams</span>
+                <span class="chip">👑 Bandhilki SMP</span>
+                <span class="chip">🎮 Gaming</span>
+            </div>
+
+            <p>
+                Minecraft SMP livestreams, gaming content and special
+                community moments — with Bandhilki SMP as a major part
+                of the journey.
+            </p>
+
+            <div class="btns" style="justify-content:center">
+                <a class="btn btn-red" href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7" target="_blank" rel="noopener noreferrer">🔴 Visit YouTube</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="kicker">Our community</div>
+            <h2>DEADEYE'S COMMUNITY</h2>
+            <p>Connect. Chill. Play. Create memories.</p>
+        </div>
+
+        <div class="community-box reveal">
+            <img class="community-logo" src="community-logo.png" alt="DEADEYE'S COMMUNITY logo">
+
+            <div>
+                <h3>Join the family. 👑</h3>
+
+                <div class="feature-list">
+                    <span>🎮 Gaming</span>
+                    <span>🎙️ Voice Chats</span>
+                    <span>🎉 Events</span>
+                    <span>🎁 Giveaways</span>
+                    <span>🍿 Watch Parties</span>
+                    <span>⛏️ Minecraft</span>
+                </div>
+
+                <p>
+                    A community built around gaming, conversations, events,
+                    watch parties, giveaways and good vibes.
+                    Meet new people, join voice channels, participate in events
+                    and become part of the DEADEYE journey.
+                </p>
+
+                <a class="btn btn-red" href="https://discord.gg/PNeCwRrtMS" target="_blank" rel="noopener noreferrer">
+                    💬 Join DEADEYE'S COMMUNITY
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MINECRAFT SERVER -->
+<section id="minecraft">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="kicker">Minecraft</div>
+            <h2>DEADEYE SERVER</h2>
+            <p>Your next Minecraft adventure starts here.</p>
+        </div>
+
+        <div class="server reveal">
+            <div class="server-icon">⛏️</div>
+            <h3>Server Coming Soon</h3>
+            <div class="status">🟠 COMING SOON</div>
+            <p>
+                Server information and IP will be available here
+                when the official server launches.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- BANDHILKI -->
+<section id="bandhilki">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="kicker">Minecraft SMP</div>
+            <h2>Bandhilki SMP</h2>
+            <p>Follow the complete Bandhilki SMP journey.</p>
+        </div>
+
+        <div class="smp-box reveal">
+            <img class="smp-logo" src="bandhilki-logo.png" alt="Bandhilki SMP logo">
+
+            <div class="smp-content">
+                <div class="smp-kicker">🔴 LIVESTREAM SERIES</div>
+
+                <h3>Bandhilki <span>SMP</span></h3>
+
+                <p>
+                    Follow my Bandhilki SMP journey — from survival and
+                    projects to unexpected adventures and unforgettable moments.
+                    <br><br>
+                    I'm also proud to be part of the
+                    <strong>Bandhilki SMP staff team</strong>.
+                </p>
+
+                <div class="smp-meta">
+                    <span>⛏️ Minecraft</span>
+                    <span>🔴 Livestreams</span>
+                    <span>👑 Staff Member</span>
+                    <span>🎬 Full Playlist</span>
+                </div>
+
+                <div class="btns">
+                    <a class="btn btn-purple" href="https://youtube.com/playlist?list=PLbCYPd-T7UbaTIg1RRE1XoxLjYRl9Z2oY&si=VBra6l3-eNl9wG6V" target="_blank" rel="noopener noreferrer">▶ Watch Bandhilki SMP</a>
+                    <a class="btn btn-dark" href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7" target="_blank" rel="noopener noreferrer">📺 More Videos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="kicker">Community activities</div>
+            <h2>Events & Experiences</h2>
+            <p>More than just gaming.</p>
+        </div>
+
+        <div class="card-grid">
+            <div class="card reveal">
+                <div class="card-icon">🍿</div>
+                <h3>Watch Parties</h3>
+                <p>Movie nights and community watch parties coming soon.</p>
+            </div>
+
+            <div class="card reveal">
+                <div class="card-icon">🎁</div>
+                <h3>Giveaways</h3>
+                <p>Community giveaways, rewards and special surprises.</p>
+            </div>
+
+            <div class="card reveal">
+                <div class="card-icon">🎮</div>
+                <h3>Gaming Events</h3>
+                <p>Gaming sessions, competitions and community events.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONNECT -->
+<section>
+    <div class="container">
+        <div class="section-head reveal">
+            <div class="kicker">Connect with us</div>
+            <h2>Stay Connected</h2>
+            <p>Follow the DEADEYE journey everywhere.</p>
+        </div>
+
+        <div class="socials reveal">
+            <a class="btn btn-red" href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+            <a class="btn btn-dark" href="https://discord.gg/PNeCwRrtMS" target="_blank" rel="noopener noreferrer">💬 Discord</a>
+            <a class="btn btn-dark" href="https://www.instagram.com/deadeye_gamingx?igsh=MWoyNXdzd2N6emxrMg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+        </div>
+    </div>
+</section>
+
+<a class="top" id="top" href="#home" aria-label="Back to top">↑</a>
+
+<footer>
+    <p>© <span id="year"></span> <strong>DEADEYE X GAMING</strong></p>
+    <p style="margin-top:8px">Built for <span>DEADEYE'S COMMUNITY</span> ❤️</p>
+
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#youtube">YouTube</a>
+        <a href="#community">Community</a>
+        <a href="#bandhilki">Bandhilki SMP</a>
+        <a href="#events">Events</a>
+    </div>
+</footer>
+
+<script>
+const nav = document.getElementById("nav");
+const menu = document.getElementById("menu");
+const navLinks = document.getElementById("navLinks");
+const progress = document.getElementById("progress");
+const topBtn = document.getElementById("top");
+
+menu.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+    menu.textContent = navLinks.classList.contains("open") ? "✕" : "☰";
+});
+
+const navAnchors = [...document.querySelectorAll(".nav-links a")];
+navAnchors.forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menu.textContent = "☰";
+    });
+});
+
+/* Lightweight active navigation */
+const sections = [...document.querySelectorAll("section[id]")];
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            navAnchors.forEach(a => a.classList.remove("active"));
+            const active = document.querySelector('.nav-links a[href="#' + entry.target.id + '"]');
+            if(active) active.classList.add("active");
+        }
+    });
+},{rootMargin:"-35% 0px -55% 0px",threshold:0});
+sections.forEach(section => sectionObserver.observe(section));
+
+function updateUI(){
+    const y = window.scrollY;
+    nav.classList.toggle("scrolled", y > 25);
+    topBtn.classList.toggle("show", y > 500);
+
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
+}
+window.addEventListener("scroll", updateUI, {passive:true});
+updateUI();
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+    });
+},{threshold:.12});
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
