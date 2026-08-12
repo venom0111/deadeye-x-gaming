@@ -2,33 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>DEADEYE X GAMING | Official</title>
 
-<meta name="description" content="Official DEADEYE X GAMING website — Minecraft, Bandhilki SMP, livestreams, gaming and DEADEYE'S COMMUNITY.">
-<meta name="author" content="Vaibhav — Deadeye">
+<meta name="description" content="Official DEADEYE X GAMING website — Minecraft, Bandhilki SMP, gaming and community.">
 <meta name="theme-color" content="#07070a">
-
-<meta property="og:title" content="DEADEYE X GAMING">
-<meta property="og:description" content="Minecraft • Bandhilki SMP • Gaming • Community">
-<meta property="og:type" content="website">
-<meta property="og:image" content="deadeye-logo.png">
 
 <link rel="icon" type="image/png" href="deadeye-logo.png">
 
-<style>
+<script src="https://unpkg.com/skinview3d/bundles/skinview3d.bundle.js"></script>
 
+<style>
 :root{
     --bg:#060609;
     --panel:#0d0d12;
-    --panel2:#111117;
-    --text:#fff;
-    --muted:#8d8d98;
     --red:#e00020;
     --red2:#ff1744;
-    --line:rgba(255,255,255,.09);
     --purple:#9a6cff;
+    --text:#fff;
+    --muted:#8d8d98;
+    --line:rgba(255,255,255,.09);
     --max:1120px;
 }
 
@@ -51,79 +45,60 @@ body{
     line-height:1.5;
 }
 
-body::before,
-body::after{
+body:before{
     content:"";
     position:fixed;
-    pointer-events:none;
-    z-index:-3;
-    width:520px;
-    height:520px;
-    border-radius:50%;
-}
-
-body::before{
+    width:550px;
+    height:550px;
     top:-300px;
-    left:-260px;
-    background:radial-gradient(
-        circle,
-        rgba(224,0,32,.10),
-        transparent 68%
-    );
+    left:-250px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(224,0,32,.12),transparent 70%);
+    pointer-events:none;
+    z-index:-1;
 }
 
-body::after{
+body:after{
+    content:"";
+    position:fixed;
+    width:550px;
+    height:550px;
     right:-300px;
     bottom:-300px;
-    background:radial-gradient(
-        circle,
-        rgba(100,60,255,.07),
-        transparent 68%
-    );
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(110,60,255,.08),transparent 70%);
+    pointer-events:none;
+    z-index:-1;
 }
 
 ::selection{
     background:var(--red);
-    color:#fff;
+    color:white;
 }
 
 /* NAV */
 
-.nav{
+nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:76px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:0 6%;
-
     background:rgba(6,6,9,.96);
-
     border-bottom:1px solid var(--line);
-
     z-index:1000;
-
-    transition:.25s;
-}
-
-.nav.scrolled{
-    background:rgba(6,6,9,.96);
-    box-shadow:0 15px 40px rgba(0,0,0,.35);
 }
 
 .brand{
     display:flex;
     align-items:center;
     gap:10px;
-
-    color:#fff;
+    color:white;
     text-decoration:none;
-
     font-size:18px;
     font-weight:900;
     letter-spacing:1px;
@@ -134,12 +109,12 @@ body::after{
     height:42px;
     border-radius:50%;
     object-fit:cover;
-    transition:.25s;
+    transition:.3s;
 }
 
 .brand:hover img{
-    transform:scale(1.07);
-    box-shadow:0 0 22px rgba(224,0,32,.28);
+    transform:scale(1.08);
+    box-shadow:0 0 22px rgba(224,0,32,.35);
 }
 
 .brand b{
@@ -148,8 +123,8 @@ body::after{
 
 .nav-links{
     display:flex;
-    list-style:none;
     gap:25px;
+    list-style:none;
 }
 
 .nav-links a{
@@ -157,54 +132,23 @@ body::after{
     text-decoration:none;
     font-size:13px;
     font-weight:800;
-    transition:.2s;
-    position:relative;
-    padding:9px 2px;
+    transition:.25s;
 }
 
 .nav-links a:hover,
 .nav-links a.active{
-    color:#fff;
-}
-
-.nav-links a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:1px;
-    height:2px;
-    border-radius:99px;
-
-    background:linear-gradient(
-        90deg,
-        var(--red),
-        var(--red2)
-    );
-
-    transform:scaleX(0);
-    transition:transform .22s ease;
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after{
-    transform:scaleX(1);
+    color:white;
 }
 
 .menu{
     display:none;
-
     width:42px;
     height:42px;
-
     border-radius:10px;
-
     border:1px solid #29292f;
     background:#111116;
-    color:#fff;
-
+    color:white;
     font-size:20px;
-    cursor:pointer;
 }
 
 /* GENERAL */
@@ -225,7 +169,7 @@ section{
 }
 
 .kicker{
-    color:#ff5b72;
+    color:#ff6075;
     font-size:11px;
     font-weight:900;
     letter-spacing:2px;
@@ -234,9 +178,8 @@ section{
 
 .section-head h2{
     font-size:clamp(32px,5vw,48px);
-    line-height:1.05;
-    margin-top:9px;
-    letter-spacing:-1.5px;
+    line-height:1;
+    margin-top:10px;
 }
 
 .section-head p{
@@ -251,130 +194,80 @@ section{
 }
 
 .btn{
+    min-height:48px;
+    padding:0 20px;
     display:inline-flex;
     align-items:center;
     justify-content:center;
-
-    min-height:48px;
-    padding:0 20px;
-
+    gap:9px;
     border-radius:11px;
-
     text-decoration:none;
-
+    color:white;
     font-size:13px;
     font-weight:900;
-
-    transition:
-        transform .85s cubic-bezier(.16,1,.3,1),
-        background .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease;
-
     border:1px solid transparent;
+    transition:transform .8s cubic-bezier(.16,1,.3,1),
+               background .25s,
+               border-color .25s;
 }
 
 .btn:hover{
     transform:translateY(-3px);
 }
 
-.btn:active{
-    transform:scale(.98);
-}
-
 .btn-red{
-    color:#fff;
-
-    background:linear-gradient(
-        135deg,
-        var(--red),
-        var(--red2)
-    );
-
+    background:linear-gradient(135deg,var(--red),var(--red2));
     box-shadow:0 10px 30px rgba(224,0,32,.18);
 }
 
 .btn-dark{
-    color:#fff;
     background:#141419;
     border-color:#2a2a31;
 }
 
 .btn-purple{
-    color:#fff;
     background:#17121f;
     border-color:#403252;
+}
+
+.social-icon{
+    width:18px;
+    height:18px;
+    fill:currentColor;
+    flex:0 0 18px;
 }
 
 /* HERO */
 
 .hero{
     min-height:100vh;
-
     display:flex;
     align-items:center;
-
     padding-top:130px;
-
     overflow:hidden;
-}
-
-.hero::before{
-    content:"";
-
-    position:absolute;
-
-    width:700px;
-    height:700px;
-
-    left:50%;
-    top:48%;
-
-    transform:translate(-50%,-50%);
-
-    background:radial-gradient(
-        circle,
-        rgba(224,0,32,.12),
-        transparent 67%
-    );
-
-    pointer-events:none;
 }
 
 .hero-grid{
     width:100%;
     max-width:var(--max);
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:1.05fr .95fr;
-
-    gap:40px;
-
+    grid-template-columns:1fr 1fr;
+    gap:30px;
     align-items:center;
 }
 
 .hero-copy{
-    position:relative;
     z-index:2;
 }
 
-.hero-badge{
+.badge{
     display:inline-flex;
-    align-items:center;
-    gap:8px;
-
     padding:9px 16px;
-
     border-radius:999px;
-
     color:#ff6075;
-
     background:rgba(224,0,32,.07);
-
     border:1px solid rgba(224,0,32,.4);
-
     font-size:12px;
     font-weight:900;
     letter-spacing:1px;
@@ -382,32 +275,21 @@ section{
 
 .hero h1{
     margin-top:22px;
-
     font-size:clamp(58px,8vw,105px);
-
     line-height:.86;
-
     letter-spacing:-6px;
-
     font-weight:950;
 }
 
 .hero h1 span{
     color:var(--red2);
-
-    text-shadow:
-        0 0 35px rgba(224,0,32,.18);
 }
 
 .hero-desc{
     max-width:650px;
-
     color:#999;
-
     font-size:17px;
-
     line-height:1.75;
-
     margin:28px 0;
 }
 
@@ -420,145 +302,88 @@ section{
 
 .stat{
     padding:10px 13px;
-
     border-radius:10px;
-
     background:rgba(255,255,255,.035);
-
     border:1px solid var(--line);
-
     color:#999;
-
     font-size:11px;
     font-weight:800;
 }
 
 .stat strong{
-    color:#fff;
+    color:white;
 }
 
-/* 3D HERO */
+/* 3D SKIN */
 
 .hero-visual{
     min-height:620px;
-
     position:relative;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
-    contain:layout paint;
 }
 
 .hero-aura{
     position:absolute;
-
     width:560px;
     height:560px;
-
     border-radius:50%;
-
     background:radial-gradient(
         circle,
-        rgba(224,0,32,.16) 0%,
-        rgba(224,0,32,.07) 30%,
-        rgba(100,60,255,.035) 48%,
+        rgba(224,0,32,.16),
+        rgba(224,0,32,.05) 35%,
         transparent 70%
-    );
-
-    pointer-events:none;
-}
-
-.hero-aura::after{
-    content:"";
-
-    position:absolute;
-    inset:24%;
-
-    border-radius:50%;
-
-    background:radial-gradient(
-        circle,
-        rgba(255,255,255,.035),
-        transparent 68%
     );
 }
 
 .hero-skin-wrap{
     position:relative;
     z-index:2;
-
     width:610px;
     height:720px;
     max-width:100%;
-
     display:flex;
     align-items:center;
     justify-content:center;
 }
 
-.hero-skin{
-    display:block;
-
+#skin_container{
     width:100%;
     height:100%;
-
     cursor:grab;
-
     touch-action:none;
-
-    outline:none;
 }
 
-.hero-skin:active{
+#skin_container:active{
     cursor:grabbing;
 }
 
 .skin-hint{
     position:absolute;
-
     left:50%;
-    bottom:34px;
-
+    bottom:35px;
     transform:translateX(-50%);
-
-    padding:9px 13px;
-
+    padding:9px 14px;
     border-radius:999px;
-
-    background:rgba(8,8,12,.78);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    color:#8f8f99;
-
+    background:rgba(8,8,12,.8);
+    border:1px solid var(--line);
+    color:#888;
     font-size:10px;
     font-weight:800;
-
     white-space:nowrap;
-
     pointer-events:none;
 }
 
 .hero-tag{
     position:absolute;
-
-    z-index:3;
-
+    right:20px;
     bottom:65px;
-    right:25px;
-
+    z-index:3;
     padding:12px 15px;
-
     border-radius:13px;
-
-    background:rgba(10,10,14,.88);
-
+    background:rgba(10,10,14,.9);
     border:1px solid var(--line);
-
-    backdrop-filter:blur(10px);
-
     font-size:11px;
     font-weight:900;
 }
@@ -574,42 +399,21 @@ section{
 
 .card-grid{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:18px;
 }
 
 .card{
     padding:28px;
-
     border-radius:20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #121218,
-            #0b0b0f
-        );
-
+    background:linear-gradient(145deg,#121218,#0b0b0f);
     border:1px solid var(--line);
-
-    box-shadow:0 15px 45px rgba(0,0,0,.15);
-
-    transition:
-        transform .85s cubic-bezier(.16,1,.3,1),
-        border-color .85s ease,
-        box-shadow .85s ease;
+    transition:.5s;
 }
 
 .card:hover{
-    transform:translate3d(0,-7px,0) scale(1.012);
-
-    border-color:rgba(224,0,32,.58);
-
-    box-shadow:
-        0 18px 40px rgba(0,0,0,.28),
-        0 0 18px rgba(224,0,32,.07);
+    transform:translateY(-7px);
+    border-color:rgba(224,0,32,.4);
 }
 
 .card-icon{
@@ -618,7 +422,6 @@ section{
 }
 
 .card h3{
-    font-size:19px;
     margin-bottom:9px;
 }
 
@@ -632,51 +435,28 @@ section{
 
 .about-box{
     display:grid;
-
     grid-template-columns:250px 1fr;
-
     gap:50px;
-
     align-items:center;
-
     padding:48px;
-
     border-radius:27px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(224,0,32,.09),
-            #0c0c11 55%
-        );
-
+    background:linear-gradient(
+        135deg,
+        rgba(224,0,32,.09),
+        #0c0c11 55%
+    );
     border:1px solid var(--line);
-
-    transition:
-        transform .85s cubic-bezier(.16,1,.3,1),
-        border-color .85s ease,
-        box-shadow .85s ease;
-}
-
-.about-box:hover{
-    transform:translate3d(0,-4px,0) scale(1.006);
-    border-color:rgba(224,0,32,.45);
-    box-shadow:0 16px 36px rgba(0,0,0,.23);
 }
 
 .about-img{
     width:100%;
     height:320px;
     object-fit:contain;
-
-    filter:drop-shadow(
-        0 18px 30px rgba(0,0,0,.5)
-    );
+    filter:drop-shadow(0 18px 30px rgba(0,0,0,.5));
 }
 
 .about-name{
     font-size:42px;
-    line-height:1;
 }
 
 .about-role{
@@ -687,21 +467,13 @@ section{
 
 .staff{
     display:inline-flex;
-
     padding:8px 13px;
-
     border-radius:999px;
-
     color:#ff6b7e;
-
     background:rgba(224,0,32,.07);
-
     border:1px solid rgba(224,0,32,.25);
-
     font-size:11px;
     font-weight:900;
-    letter-spacing:.8px;
-
     margin-bottom:20px;
 }
 
@@ -711,125 +483,61 @@ section{
 }
 
 .about-copy strong{
-    color:#fff;
+    color:white;
 }
 
 /* YOUTUBE */
 
 .youtube-box{
-    position:relative;
-    overflow:hidden;
-
     padding:55px;
-
     text-align:center;
-
     border-radius:27px;
-
     background:
         radial-gradient(
             circle at 85% 15%,
             rgba(224,0,32,.12),
             transparent 30%
         ),
-        linear-gradient(
-            145deg,
-            #121217,
-            #09090d
-        );
-
+        linear-gradient(145deg,#121217,#09090d);
     border:1px solid var(--line);
-
-    transition:
-        transform .85s cubic-bezier(.16,1,.3,1),
-        border-color .85s ease,
-        box-shadow .85s ease;
-}
-
-.youtube-box:hover{
-    transform:translate3d(0,-4px,0) scale(1.006);
-    border-color:rgba(224,0,32,.45);
-    box-shadow:0 16px 36px rgba(0,0,0,.23);
-}
-
-.youtube-box::after{
-    content:"▶";
-
-    position:absolute;
-
-    right:25px;
-    top:-15px;
-
-    font-size:150px;
-
-    font-weight:900;
-
-    color:rgba(224,0,32,.025);
-}
-
-.youtube-box>*{
-    position:relative;
-    z-index:1;
 }
 
 .sub-count{
     font-size:clamp(48px,7vw,72px);
-
     font-weight:950;
-
     color:var(--red2);
-
     margin:16px 0 0;
-
-    text-shadow:
-        0 0 30px rgba(224,0,32,.18);
 }
 
 .sub-label{
     color:#777;
-
     font-size:11px;
-
     font-weight:900;
-
     letter-spacing:2px;
-
     margin-bottom:20px;
 }
 
 .youtube-box p{
     color:#888;
-
     max-width:650px;
-
     margin:0 auto 25px;
-
     line-height:1.75;
 }
 
 .chips{
     display:flex;
-
     justify-content:center;
-
     gap:9px;
-
     flex-wrap:wrap;
-
     margin:20px 0 25px;
 }
 
 .chip{
     padding:8px 12px;
-
     border-radius:999px;
-
     background:#17171c;
-
     border:1px solid #29292f;
-
     color:#aaa;
-
     font-size:11px;
     font-weight:800;
 }
@@ -838,50 +546,25 @@ section{
 
 .community-box{
     display:grid;
-
     grid-template-columns:260px 1fr;
-
     gap:45px;
-
     align-items:center;
-
     padding:45px;
-
     border-radius:27px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(224,0,32,.08),
-            #0b0b10 60%
-        );
-
+    background:linear-gradient(
+        135deg,
+        rgba(224,0,32,.08),
+        #0b0b10 60%
+    );
     border:1px solid var(--line);
-
-    transition:
-        transform .85s cubic-bezier(.16,1,.3,1),
-        border-color .85s ease,
-        box-shadow .85s ease;
-}
-
-.community-box:hover{
-    transform:translate3d(0,-4px,0) scale(1.006);
-
-    border-color:rgba(224,0,32,.45);
-
-    box-shadow:0 16px 36px rgba(0,0,0,.23);
 }
 
 .community-logo{
     width:260px;
     height:260px;
-
     object-fit:cover;
-
     border-radius:24px;
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.35);
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
 }
 
 .community-box h3{
@@ -904,15 +587,10 @@ section{
 
 .feature-list span{
     padding:8px 10px;
-
     border-radius:9px;
-
     background:#15151a;
-
     border:1px solid #28282e;
-
     color:#aaa;
-
     font-size:11px;
     font-weight:800;
 }
@@ -921,60 +599,12 @@ section{
 
 .server{
     text-align:center;
-
     max-width:900px;
-
     margin:auto;
-
     padding:60px 30px;
-
     border-radius:27px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #111116,
-            #09090d
-        );
-
+    background:linear-gradient(145deg,#111116,#09090d);
     border:1px solid var(--line);
-
-    position:relative;
-    overflow:hidden;
-
-    transition:
-        transform .85s cubic-bezier(.16,1,.3,1),
-        border-color .85s ease,
-        box-shadow .85s ease;
-}
-
-.server:hover{
-    transform:translate3d(0,-4px,0) scale(1.006);
-    border-color:rgba(224,0,32,.45);
-    box-shadow:0 16px 36px rgba(0,0,0,.23);
-}
-
-.server::before{
-    content:"";
-
-    position:absolute;
-
-    width:280px;
-    height:280px;
-
-    left:-140px;
-    bottom:-160px;
-
-    border-radius:50%;
-
-    background:rgba(224,0,32,.09);
-
-    filter:blur(45px);
-}
-
-.server>*{
-    position:relative;
-    z-index:1;
 }
 
 .server-icon{
@@ -988,128 +618,54 @@ section{
 
 .status{
     display:inline-flex;
-
     margin:15px 0;
-
     padding:8px 15px;
-
     border-radius:999px;
-
     color:#ffb020;
-
     background:rgba(255,160,0,.07);
-
     border:1px solid rgba(255,160,0,.25);
-
     font-size:12px;
     font-weight:900;
 }
 
 .server p{
     color:#777;
-    max-width:600px;
-    margin:auto;
 }
 
-/* BANDHILKI SMP */
+/* BANDHILKI */
 
 .smp-box{
     display:grid;
-
     grid-template-columns:280px 1fr;
-
     gap:45px;
-
     align-items:center;
-
     padding:42px;
-
     border-radius:28px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(113,66,190,.13),
-            #0b0b10 65%
-        );
-
+    background:linear-gradient(
+        135deg,
+        rgba(113,66,190,.13),
+        #0b0b10 65%
+    );
     border:1px solid rgba(155,108,255,.18);
-
-    overflow:hidden;
-
-    position:relative;
-
-    transition:
-        transform .85s cubic-bezier(.16,1,.3,1),
-        border-color .85s ease,
-        box-shadow .85s ease;
-}
-
-.smp-box:hover{
-    transform:translate3d(0,-4px,0) scale(1.006);
-
-    border-color:rgba(155,108,255,.45);
-
-    box-shadow:0 16px 36px rgba(0,0,0,.23);
-}
-
-.smp-box::after{
-    content:"";
-
-    position:absolute;
-
-    width:300px;
-    height:300px;
-
-    right:-150px;
-    top:-150px;
-
-    border-radius:50%;
-
-    background:rgba(120,60,255,.1);
-
-    filter:blur(60px);
 }
 
 .smp-logo{
     width:260px;
     height:260px;
-
     object-fit:contain;
-
     margin:auto;
-
-    position:relative;
-    z-index:1;
-
-    filter:
-        drop-shadow(
-            0 20px 30px rgba(0,0,0,.45)
-        );
-}
-
-.smp-content{
-    position:relative;
-    z-index:1;
+    filter:drop-shadow(0 20px 30px rgba(0,0,0,.45));
 }
 
 .smp-kicker{
     display:inline-flex;
-
     padding:7px 12px;
-
     border-radius:999px;
-
     color:#c8a9ff;
-
     background:rgba(120,60,255,.08);
-
     border:1px solid rgba(155,108,255,.25);
-
     font-size:11px;
-
     font-weight:900;
-
     letter-spacing:1px;
 }
 
@@ -1124,53 +680,28 @@ section{
 
 .smp-content p{
     color:#999;
-
     line-height:1.8;
-
     margin-bottom:20px;
 }
 
 .smp-meta{
     display:flex;
-
     gap:9px;
-
     flex-wrap:wrap;
-
     margin-bottom:22px;
 }
 
 .smp-meta span{
     padding:8px 11px;
-
     border-radius:9px;
-
     background:#15131b;
-
     border:1px solid #2b2534;
-
     color:#aaa;
-
     font-size:11px;
     font-weight:800;
 }
 
-/* EVENTS */
-
-.event-icon{
-    font-size:35px;
-}
-
-.event h3{
-    margin:15px 0 7px;
-}
-
-.event p{
-    color:#777;
-    font-size:14px;
-}
-
-/* SOCIALS */
+/* FOOTER */
 
 .socials{
     display:flex;
@@ -1179,27 +710,15 @@ section{
     flex-wrap:wrap;
 }
 
-/* FOOTER */
-
 footer{
     padding:50px 20px;
-
     text-align:center;
-
     border-top:1px solid var(--line);
-
-    background:
-        linear-gradient(
-            180deg,
-            transparent,
-            rgba(224,0,32,.025)
-        );
-
     color:#666;
 }
 
 footer strong{
-    color:#fff;
+    color:white;
 }
 
 footer span{
@@ -1208,102 +727,29 @@ footer span{
 
 .footer-links{
     display:flex;
-
     justify-content:center;
-
     gap:18px;
-
     flex-wrap:wrap;
-
     margin-top:17px;
 }
 
 .footer-links a{
     color:#777;
     text-decoration:none;
-
     font-size:12px;
     font-weight:800;
 }
 
 .footer-links a:hover{
-    color:#fff;
+    color:white;
 }
 
-/* UTILITY */
-
-.progress{
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:0;
-    height:2px;
-
-    background:var(--red2);
-
-    box-shadow:0 0 12px rgba(224,0,32,.5);
-
-    z-index:2000;
-}
-
-.top{
-    position:fixed;
-
-    right:22px;
-    bottom:22px;
-
-    width:44px;
-    height:44px;
-
-    border-radius:12px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    color:#fff;
-
-    background:#15151a;
-
-    border:1px solid #2b2b31;
-
-    text-decoration:none;
-
-    font-weight:900;
-    font-size:20px;
-
-    opacity:0;
-    visibility:hidden;
-
-    transform:translateY(10px);
-
-    transition:.25s;
-
-    z-index:900;
-}
-
-.top.show{
-    opacity:1;
-    visibility:visible;
-    transform:none;
-}
-
-.top:hover{
-    background:var(--red);
-    border-color:var(--red);
-    transform:translateY(-3px);
-}
+/* REVEAL */
 
 .reveal{
     opacity:0;
     transform:translateY(18px);
-
-    transition:
-        opacity .65s ease,
-        transform .65s ease;
+    transition:opacity .7s ease,transform .7s ease;
 }
 
 .reveal.visible{
@@ -1311,33 +757,57 @@ footer span{
     transform:none;
 }
 
+/* TOP */
+
+.top{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    color:white;
+    background:#15151a;
+    border:1px solid #2b2b31;
+    text-decoration:none;
+    font-weight:900;
+    opacity:0;
+    visibility:hidden;
+    transition:.25s;
+    z-index:900;
+}
+
+.top.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.top:hover{
+    background:var(--red);
+}
+
 /* MOBILE */
 
 @media(max-width:900px){
 
-    .nav{
+    nav{
         padding:0 5%;
     }
 
     .nav-links{
         position:absolute;
-
         left:5%;
         right:5%;
         top:76px;
-
         display:none;
-
         flex-direction:column;
-
         gap:0;
-
         background:#0b0b10;
-
         border:1px solid #29292f;
-
         border-radius:15px;
-
         overflow:hidden;
     }
 
@@ -1348,7 +818,6 @@ footer span{
     .nav-links a{
         display:block;
         padding:15px 18px;
-
         border-bottom:1px solid #202027;
     }
 
@@ -1371,18 +840,12 @@ footer span{
     }
 
     .hero-visual{
-        min-height:430px;
-        margin-top:-20px;
+        min-height:470px;
     }
 
     .hero-skin-wrap{
-        width:380px;
-        height:470px;
-    }
-
-    .hero-tag{
-        right:7%;
-        bottom:20px;
+        width:400px;
+        height:500px;
     }
 
     .card-grid{
@@ -1396,26 +859,13 @@ footer span{
         text-align:center;
     }
 
-    .about-img{
-        height:260px;
-    }
-
-    .community-logo,
-    .smp-logo{
-        margin:auto;
-    }
-
     .feature-list,
     .smp-meta{
         justify-content:center;
     }
 
-    .smp-content h3{
-        font-size:34px;
-    }
-
-    .socials{
-        justify-content:center;
+    .about-img{
+        height:260px;
     }
 }
 
@@ -1440,30 +890,29 @@ footer span{
     }
 
     .hero-visual{
-        min-height:370px;
+        min-height:390px;
     }
 
     .hero-skin-wrap{
         width:320px;
-        height:410px;
-    }
-
-    .hero-tag{
-        font-size:9px;
+        height:420px;
     }
 
     .skin-hint{
         font-size:9px;
     }
 
-    .about-box,
-    .community-box,
-    .smp-box{
-        padding:28px 20px;
+    .hero-tag{
+        right:5px;
+        bottom:20px;
+        font-size:9px;
     }
 
+    .about-box,
+    .community-box,
+    .smp-box,
     .youtube-box{
-        padding:40px 20px;
+        padding:28px 20px;
     }
 
     .community-logo{
@@ -1476,58 +925,33 @@ footer span{
         height:210px;
     }
 
+    .smp-content h3{
+        font-size:34px;
+    }
+
     .btn{
         width:100%;
-    }
-
-    .btns{
-        width:100%;
-    }
-}
-
-@media(prefers-reduced-motion:reduce){
-
-    *,
-    *::before,
-    *::after{
-        scroll-behavior:auto !important;
-        animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
-        transition-duration:.01ms !important;
     }
 }
 
 </style>
-
-<!-- 3D Minecraft Skin Viewer -->
-<script src="https://unpkg.com/skinview3d/bundles/skinview3d.bundle.js"></script>
-
 </head>
 
 <body>
 
-<div class="progress" id="progress"></div>
+<!-- NAV -->
 
-<!-- NAVBAR -->
-
-<nav class="nav" id="nav">
+<nav id="nav">
 
     <a class="brand" href="#home">
 
-        <img
-            src="deadeye-logo.png"
-            alt="DEADEYE X GAMING logo"
-        >
+        <img src="deadeye-logo.png" alt="DEADEYE X GAMING">
 
         DEADEYE <b>X</b> GAMING
 
     </a>
 
-    <button
-        class="menu"
-        id="menu"
-        aria-label="Open navigation"
-    >
+    <button class="menu" id="menu">
         ☰
     </button>
 
@@ -1560,7 +984,7 @@ footer span{
 
         <div class="hero-copy reveal">
 
-            <div class="hero-badge">
+            <div class="badge">
                 ✦ DEADEYE X GAMING
             </div>
 
@@ -1571,9 +995,11 @@ footer span{
             </h1>
 
             <p class="hero-desc">
+
                 Welcome to the official world of Deadeye —
-                Minecraft, livestreams, gaming, community events
-                and unforgettable moments.
+                Minecraft, livestreams, gaming, community
+                events and unforgettable moments.
+
             </p>
 
             <div class="btns">
@@ -1584,7 +1010,13 @@ footer span{
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    💬 Join Discord
+
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M19.5 4.4A16.8 16.8 0 0 0 15.4 3l-.5 1a15.2 15.2 0 0 0-5.8 0l-.5-1a16.8 16.8 0 0 0-4.1 1.4C1.8 7.1 1.1 9.8.8 12.4c1.8 1.3 3.6 2.1 5.5 2.7.5-.7.9-1.4 1.2-2.1-.7-.3-1.3-.6-1.9-1 .2-.2.4-.3.6-.5 3.7 1.7 7.7 1.7 11.4 0 .2.2.4.3.6.5-.6.4-1.2.7-1.9 1 .3.7.7 1.4 1.2 2.1 1.9-.6 3.7-1.4 5.5-2.7-.3-2.6-1-5.3-3.5-8ZM8.7 12.2c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm6.6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Z"/>
+                    </svg>
+
+                    Join Discord
+
                 </a>
 
                 <a
@@ -1593,7 +1025,13 @@ footer span{
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    ▶ Visit YouTube
+
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.9V8.1l6.8 3.9-6.8 3.9Z"/>
+                    </svg>
+
+                    YouTube
+
                 </a>
 
             </div>
@@ -1605,7 +1043,7 @@ footer span{
                 </div>
 
                 <div class="stat">
-                    🔴 <strong>Livestreams</strong>
+                    🔴 <strong>Live Streams</strong>
                 </div>
 
                 <div class="stat">
@@ -1617,7 +1055,7 @@ footer span{
         </div>
 
 
-        <!-- INTERACTIVE 3D SKIN -->
+        <!-- 3D SKIN -->
 
         <div class="hero-visual reveal">
 
@@ -1627,8 +1065,7 @@ footer span{
 
                 <canvas
                     id="skin_container"
-                    class="hero-skin"
-                    aria-label="Interactive 3D Deadeye Minecraft skin"
+                    aria-label="Interactive 3D Deadeye Minecraft Skin"
                 ></canvas>
 
                 <div class="skin-hint">
@@ -1682,7 +1119,7 @@ footer span{
             <img
                 class="about-img"
                 src="deadeye-skin.png"
-                alt="Vaibhav Deadeye"
+                alt="Deadeye"
             >
 
             <div>
@@ -1706,18 +1143,11 @@ footer span{
 
                     I'm a gamer, content creator and community
                     builder who enjoys Minecraft, gaming,
-                    livestreaming and creating memorable moments
-                    with people.
+                    livestreaming and creating memorable moments.
 
                     <br><br>
 
-                    Outside gaming, I'm a
-                    <strong>pharmacist</strong>
-                    and I also run my own medical shop.
-
-                    <br><br>
-
-                    I'm the
+                    I'm also the
                     <strong>Staff Manager (Coordinator)</strong>
                     of Bandhilki SMP, helping coordinate the
                     staff team and contribute to the SMP community.
@@ -1726,13 +1156,6 @@ footer span{
 
                     Gaming is where I create, connect and have
                     fun with the community.
-
-                    <br><br>
-
-                    <strong>
-                        The goal is simple — build something
-                        people want to be part of.
-                    </strong>
 
                 </p>
 
@@ -1805,8 +1228,7 @@ footer span{
             <p>
 
                 Minecraft SMP livestreams, gaming content
-                and special community moments — with
-                Bandhilki SMP as a major part of the journey.
+                and special community moments.
 
             </p>
 
@@ -1821,7 +1243,13 @@ footer span{
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    🔴 Visit YouTube
+
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.9V8.1l6.8 3.9-6.8 3.9Z"/>
+                    </svg>
+
+                    Visit YouTube
+
                 </a>
 
             </div>
@@ -1861,7 +1289,7 @@ footer span{
             <img
                 class="community-logo"
                 src="community-logo.PNG"
-                alt="DEADEYE'S COMMUNITY logo"
+                alt="DEADEYE'S COMMUNITY"
             >
 
             <div>
@@ -1873,15 +1301,10 @@ footer span{
                 <div class="feature-list">
 
                     <span>🎮 Gaming</span>
-
                     <span>🎙️ Voice Chats</span>
-
                     <span>🎉 Events</span>
-
                     <span>🎁 Giveaways</span>
-
                     <span>🍿 Watch Parties</span>
-
                     <span>⛏️ Minecraft</span>
 
                 </div>
@@ -1892,10 +1315,6 @@ footer span{
                     conversations, events, watch parties,
                     giveaways and good vibes.
 
-                    Meet new people, join voice channels,
-                    participate in events and become part
-                    of the DEADEYE journey.
-
                 </p>
 
                 <a
@@ -1904,7 +1323,13 @@ footer span{
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    💬 Join DEADEYE'S COMMUNITY
+
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M19.5 4.4A16.8 16.8 0 0 0 15.4 3l-.5 1a15.2 15.2 0 0 0-5.8 0l-.5-1a16.8 16.8 0 0 0-4.1 1.4C1.8 7.1 1.1 9.8.8 12.4c1.8 1.3 3.6 2.1 5.5 2.7.5-.7.9-1.4 1.2-2.1-.7-.3-1.3-.6-1.9-1 .2-.2.4-.3.6-.5 3.7 1.7 7.7 1.7 11.4 0 .2.2.4.3.6.5-.6.4-1.2.7-1.9 1 .3.7.7 1.4 1.2 2.1 1.9-.6 3.7-1.4 5.5-2.7-.3-2.6-1-5.3-3.5-8ZM8.7 12.2c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm6.6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Z"/>
+                    </svg>
+
+                    Join DEADEYE'S COMMUNITY
+
                 </a>
 
             </div>
@@ -1916,7 +1341,7 @@ footer span{
 </section>
 
 
-<!-- MINECRAFT SERVER -->
+<!-- MINECRAFT -->
 
 <section id="minecraft">
 
@@ -1954,10 +1379,8 @@ footer span{
             </div>
 
             <p>
-
-                Server information and IP will be available
-                here when the official server launches.
-
+                Server information and IP will be
+                available here when the official server launches.
             </p>
 
         </div>
@@ -1995,29 +1418,28 @@ footer span{
             <img
                 class="smp-logo"
                 src="bandhilki-logo.png"
-                alt="Bandhilki SMP logo"
+                alt="Bandhilki SMP"
             >
 
-            <div class="smp-content">
+            <div>
 
                 <div class="smp-kicker">
                     🔴 LIVESTREAM SERIES
                 </div>
 
                 <h3>
-                    Bandhilki
-                    <span>SMP</span>
+                    Bandhilki <span>SMP</span>
                 </h3>
 
                 <p>
 
-                    Follow my Bandhilki SMP journey — from
-                    survival and projects to unexpected
-                    adventures and unforgettable moments.
+                    Follow my Bandhilki SMP journey —
+                    survival, projects, adventures and
+                    unforgettable moments.
 
                     <br><br>
 
-                    I'm proud to be the
+                    I'm the
                     <strong>
                         Staff Manager (Coordinator)
                     </strong>
@@ -2028,21 +1450,13 @@ footer span{
 
                 <div class="smp-meta">
 
-                    <span>
-                        ⛏️ Minecraft
-                    </span>
+                    <span>⛏️ Minecraft</span>
 
-                    <span>
-                        🔴 Livestreams
-                    </span>
+                    <span>🔴 Livestreams</span>
 
-                    <span>
-                        👑 Staff Manager • Coordinator
-                    </span>
+                    <span>👑 Staff Manager • Coordinator</span>
 
-                    <span>
-                        🎬 Full Playlist
-                    </span>
+                    <span>🎬 Full Playlist</span>
 
                 </div>
 
@@ -2058,14 +1472,22 @@ footer span{
                         ▶ Watch Bandhilki SMP
                     </a>
 
+
                     <a
                         class="btn btn-dark"
                         href="https://discord.gg/Kv2D5CjBSf"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        💬 Join Bandhilki Discord
+
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M19.5 4.4A16.8 16.8 0 0 0 15.4 3l-.5 1a15.2 15.2 0 0 0-5.8 0l-.5-1a16.8 16.8 0 0 0-4.1 1.4C1.8 7.1 1.1 9.8.8 12.4c1.8 1.3 3.6 2.1 5.5 2.7.5-.7.9-1.4 1.2-2.1-.7-.3-1.3-.6-1.9-1 .2-.2.4-.3.6-.5 3.7 1.7 7.7 1.7 11.4 0 .2.2.4.3.6.5-.6.4-1.2.7-1.9 1 .3.7.7 1.4 1.2 2.1 1.9-.6 3.7-1.4 5.5-2.7-.3-2.6-1-5.3-3.5-8ZM8.7 12.2c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm6.6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Z"/>
+                        </svg>
+
+                        Join Bandhilki Discord
+
                     </a>
+
 
                     <a
                         class="btn btn-dark"
@@ -2073,7 +1495,13 @@ footer span{
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        📺 More Videos
+
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.9V8.1l6.8 3.9-6.8 3.9Z"/>
+                        </svg>
+
+                        More Videos
+
                     </a>
 
                 </div>
@@ -2172,7 +1600,7 @@ footer span{
 </section>
 
 
-<!-- CONNECT -->
+<!-- SOCIALS -->
 
 <section>
 
@@ -2203,8 +1631,15 @@ footer span{
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                ▶ YouTube
+
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.9V8.1l6.8 3.9-6.8 3.9Z"/>
+                </svg>
+
+                YouTube
+
             </a>
+
 
             <a
                 class="btn btn-dark"
@@ -2212,8 +1647,15 @@ footer span{
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                💬 Discord
+
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M19.5 4.4A16.8 16.8 0 0 0 15.4 3l-.5 1a15.2 15.2 0 0 0-5.8 0l-.5-1a16.8 16.8 0 0 0-4.1 1.4C1.8 7.1 1.1 9.8.8 12.4c1.8 1.3 3.6 2.1 5.5 2.7.5-.7.9-1.4 1.2-2.1-.7-.3-1.3-.6-1.9-1 .2-.2.4-.3.6-.5 3.7 1.7 7.7 1.7 11.4 0 .2.2.4.3.6.5-.6.4-1.2.7-1.9 1 .3.7.7 1.4 1.2 2.1 1.9-.6 3.7-1.4 5.5-2.7-.3-2.6-1-5.3-3.5-8ZM8.7 12.2c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm6.6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Z"/>
+                </svg>
+
+                Discord
+
             </a>
+
 
             <a
                 class="btn btn-dark"
@@ -2221,7 +1663,13 @@ footer span{
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                📸 Instagram
+
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M7.2 2h9.6A5.2 5.2 0 0 1 22 7.2v9.6a5.2 5.2 0 0 1-5.2 5.2H7.2A5.2 5.2 0 0 1 2 16.8V7.2A5.2 5.2 0 0 1 7.2 2Zm0 2A3.2 3.2 0 0 0 4 7.2v9.6A3.2 3.2 0 0 0 7.2 20h9.6a3.2 3.2 0 0 0 3.2-3.2V7.2A3.2 3.2 0 0 0 16.8 4H7.2Zm9.9 1.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0-0-6Z"/>
+                </svg>
+
+                Instagram
+
             </a>
 
         </div>
@@ -2231,13 +1679,12 @@ footer span{
 </section>
 
 
-<!-- TOP -->
+<!-- BACK TO TOP -->
 
 <a
     class="top"
     id="top"
     href="#home"
-    aria-label="Back to top"
 >
     ↑
 </a>
@@ -2260,29 +1707,17 @@ footer span{
 
     <div class="footer-links">
 
-        <a href="#home">
-            Home
-        </a>
+        <a href="#home">Home</a>
 
-        <a href="#about">
-            About
-        </a>
+        <a href="#about">About</a>
 
-        <a href="#youtube">
-            YouTube
-        </a>
+        <a href="#youtube">YouTube</a>
 
-        <a href="#community">
-            Community
-        </a>
+        <a href="#community">Community</a>
 
-        <a href="#bandhilki">
-            Bandhilki SMP
-        </a>
+        <a href="#bandhilki">Bandhilki SMP</a>
 
-        <a href="#events">
-            Events
-        </a>
+        <a href="#events">Events</a>
 
     </div>
 
@@ -2291,8 +1726,7 @@ footer span{
 
 <script>
 
-const nav =
-    document.getElementById("nav");
+/* MOBILE MENU */
 
 const menu =
     document.getElementById("menu");
@@ -2300,60 +1734,53 @@ const menu =
 const navLinks =
     document.getElementById("navLinks");
 
-const progress =
-    document.getElementById("progress");
-
-const topBtn =
-    document.getElementById("top");
-
-
-/* MOBILE MENU */
-
-menu.addEventListener("click", () => {
+menu.addEventListener("click",function(){
 
     navLinks.classList.toggle("open");
 
     menu.textContent =
         navLinks.classList.contains("open")
-            ? "✕"
-            : "☰";
+        ? "✕"
+        : "☰";
 
 });
 
 
-/* CLOSE MOBILE MENU */
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(function(link){
 
-const navAnchors =
-    [...document.querySelectorAll(".nav-links a")];
+        link.addEventListener("click",function(){
 
-navAnchors.forEach(link => {
+            navLinks.classList.remove("open");
 
-    link.addEventListener("click", () => {
+            menu.textContent="☰";
 
-        navLinks.classList.remove("open");
-
-        menu.textContent = "☰";
+        });
 
     });
 
-});
 
-
-/* ACTIVE NAVIGATION */
+/* ACTIVE NAV */
 
 const sections =
-    [...document.querySelectorAll("section[id]")];
+    document.querySelectorAll("section[id]");
+
+const navItems =
+    document.querySelectorAll(".nav-links a");
 
 const sectionObserver =
     new IntersectionObserver(
-        entries => {
+        function(entries){
 
-            entries.forEach(entry => {
+            entries.forEach(function(entry){
 
                 if(entry.isIntersecting){
 
-                    navAnchors.forEach(
-                        a => a.classList.remove("active")
+                    navItems.forEach(
+                        function(a){
+                            a.classList.remove("active");
+                        }
                     );
 
                     const active =
@@ -2373,68 +1800,47 @@ const sectionObserver =
 
         },
         {
-            rootMargin:"-35% 0px -55% 0px",
-            threshold:0
+            rootMargin:"-35% 0px -55% 0px"
         }
     );
 
-sections.forEach(
-    section => sectionObserver.observe(section)
-);
+sections.forEach(function(section){
+    sectionObserver.observe(section);
+});
 
 
-/* SCROLL UI */
+/* BACK TO TOP */
 
-function updateUI(){
-
-    const y =
-        window.scrollY;
-
-    nav.classList.toggle(
-        "scrolled",
-        y > 25
-    );
-
-    topBtn.classList.toggle(
-        "show",
-        y > 500
-    );
-
-    const max =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
-
-    progress.style.width =
-        (max > 0
-            ? (y / max) * 100
-            : 0) + "%";
-
-}
+const topButton =
+    document.getElementById("top");
 
 window.addEventListener(
     "scroll",
-    updateUI,
+    function(){
+
+        topButton.classList.toggle(
+            "show",
+            window.scrollY > 500
+        );
+
+    },
     {passive:true}
 );
-
-updateUI();
 
 
 /* REVEAL */
 
-const observer =
+const revealObserver =
     new IntersectionObserver(
-        entries => {
+        function(entries){
 
-            entries.forEach(entry => {
+            entries.forEach(function(entry){
 
                 if(entry.isIntersecting){
 
-                    entry.target.classList.add(
-                        "visible"
-                    );
+                    entry.target.classList.add("visible");
 
-                    observer.unobserve(
+                    revealObserver.unobserve(
                         entry.target
                     );
 
@@ -2450,9 +1856,11 @@ const observer =
 
 document
     .querySelectorAll(".reveal")
-    .forEach(
-        el => observer.observe(el)
-    );
+    .forEach(function(el){
+
+        revealObserver.observe(el);
+
+    });
 
 
 /* YEAR */
@@ -2463,32 +1871,28 @@ document
         new Date().getFullYear();
 
 
-/* ==================================================
-   INTERACTIVE 3D MINECRAFT SKIN VIEWER
-   ================================================== */
+/* =================================================
+   3D MINECRAFT SKIN
+   ================================================= */
 
-const skinCanvas =
-    document.getElementById(
-        "skin_container"
-    );
+const canvas =
+    document.getElementById("skin_container");
 
 if(
-    skinCanvas &&
+    canvas &&
     window.skinview3d
 ){
 
-    const skinViewer =
+    const viewer =
         new skinview3d.SkinViewer({
 
-            canvas:skinCanvas,
+            canvas:canvas,
 
             width:
-                skinCanvas.clientWidth ||
-                610,
+                canvas.clientWidth || 610,
 
             height:
-                skinCanvas.clientHeight ||
-                720,
+                canvas.clientHeight || 720,
 
             skin:
                 "deadeye-skin.png"
@@ -2496,71 +1900,65 @@ if(
         });
 
 
-    /* CAMERA */
+    viewer.fov = 48;
 
-    skinViewer.fov = 48;
-
-    skinViewer.zoom = 0.72;
-
+    viewer.zoom = 0.72;
 
     /*
-       Mouse/touch controls are provided
-       by skinview3d.
+       No automatic rotation.
+       User can drag the model with mouse
+       or touch on mobile.
     */
 
-    skinViewer.autoRotate =
-        false;
+    viewer.autoRotate = false;
 
 
-    /* LIGHTING */
+    /* LIGHT */
 
-    skinViewer.cameraLight.intensity =
-        0.7;
+    viewer.cameraLight.intensity = .7;
 
-    skinViewer.globalLight.intensity =
-        2.2;
+    viewer.globalLight.intensity = 2.2;
 
 
-    /* IDLE WALK ANIMATION */
+    /* WALKING ANIMATION */
 
-    skinViewer.animation =
+    viewer.animation =
         new skinview3d.WalkingAnimation();
 
-    skinViewer.animation.speed =
-        0.65;
+    viewer.animation.speed =
+        .65;
 
 
-    /* RESPONSIVE RESIZE */
+    /* RESPONSIVE */
 
-    const resizeSkinViewer =
-        () => {
+    function resizeViewer(){
 
-            const rect =
-                skinCanvas.getBoundingClientRect();
+        const rect =
+            canvas.getBoundingClientRect();
 
-            skinViewer.width =
-                Math.max(
-                    1,
-                    Math.round(rect.width)
-                );
+        viewer.width =
+            Math.max(
+                1,
+                Math.round(rect.width)
+            );
 
-            skinViewer.height =
-                Math.max(
-                    1,
-                    Math.round(rect.height)
-                );
+        viewer.height =
+            Math.max(
+                1,
+                Math.round(rect.height)
+            );
 
-        };
+    }
 
 
     window.addEventListener(
         "resize",
-        resizeSkinViewer,
+        resizeViewer,
         {passive:true}
     );
 
 
-    resizeSkinViewer();
+    resizeViewer();
 
 }
 
