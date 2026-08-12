@@ -1,50 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>DEADEYE X GAMING | Official</title>
 
-<meta name="description"
-content="Official DEADEYE X GAMING website — Minecraft, Bandhilki SMP, gaming and community.">
-
+<meta name="description" content="Official DEADEYE X GAMING website — Minecraft, Bandhilki SMP, gaming and community.">
 <meta name="theme-color" content="#07070a">
 
 <link rel="icon" type="image/png" href="deadeye-logo.png">
 
-<!-- Minecraft 3D Skin Viewer -->
-<script src="https://cdn.jsdelivr.net/npm/skinview3d@3.4.2/bundles/skinview3d.bundle.js"></script>
+<script src="https://unpkg.com/skinview3d/bundles/skinview3d.bundle.js"></script>
 
 <style>
-
-/* =========================================================
-   ROOT
-========================================================= */
-
 :root{
     --bg:#060609;
     --panel:#0d0d12;
-    --panel2:#111116;
-
     --red:#e00020;
     --red2:#ff1744;
-
     --purple:#9a6cff;
-
-    --text:#ffffff;
+    --text:#fff;
     --muted:#8d8d98;
-
     --line:rgba(255,255,255,.09);
-
     --max:1120px;
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *{
     margin:0;
@@ -58,152 +38,83 @@ html{
 }
 
 body{
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family:Arial,Helvetica,sans-serif;
     background:var(--bg);
-
     color:var(--text);
-
     overflow-x:hidden;
-
     line-height:1.5;
 }
 
-a{
-    color:inherit;
+body:before{
+    content:"";
+    position:fixed;
+    width:550px;
+    height:550px;
+    top:-300px;
+    left:-250px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(224,0,32,.12),transparent 70%);
+    pointer-events:none;
+    z-index:-1;
 }
 
-button{
-    font-family:inherit;
+body:after{
+    content:"";
+    position:fixed;
+    width:550px;
+    height:550px;
+    right:-300px;
+    bottom:-300px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(110,60,255,.08),transparent 70%);
+    pointer-events:none;
+    z-index:-1;
 }
 
 ::selection{
     background:var(--red);
-    color:#fff;
+    color:white;
 }
 
-
-/* =========================================================
-   BACKGROUND GLOW
-========================================================= */
-
-body::before{
-    content:"";
-
-    position:fixed;
-
-    width:550px;
-    height:550px;
-
-    top:-300px;
-    left:-250px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(224,0,32,.13),
-            transparent 70%
-        );
-
-    pointer-events:none;
-
-    z-index:-1;
-}
-
-body::after{
-    content:"";
-
-    position:fixed;
-
-    width:550px;
-    height:550px;
-
-    right:-300px;
-    bottom:-300px;
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(110,60,255,.08),
-            transparent 70%
-        );
-
-    pointer-events:none;
-
-    z-index:-1;
-}
-
-
-/* =========================================================
-   NAVBAR
-========================================================= */
+/* NAV */
 
 nav{
     position:fixed;
-
     top:0;
     left:0;
-
     width:100%;
     height:76px;
-
     display:flex;
-
     align-items:center;
     justify-content:space-between;
-
     padding:0 6%;
-
-    background:rgba(6,6,9,.94);
-
+    background:rgba(6,6,9,.96);
     border-bottom:1px solid var(--line);
-
-    backdrop-filter:blur(14px);
-
     z-index:1000;
 }
 
 .brand{
     display:flex;
-
     align-items:center;
-
     gap:10px;
-
-    color:#fff;
-
+    color:white;
     text-decoration:none;
-
     font-size:18px;
-
     font-weight:900;
-
     letter-spacing:1px;
 }
 
 .brand img{
     width:42px;
     height:42px;
-
     border-radius:50%;
-
     object-fit:cover;
-
-    transition:.3s ease;
+    transition:.3s;
 }
 
-.brand img:hover{
+.brand:hover img{
     transform:scale(1.08);
-
-    box-shadow:
-        0 0 25px rgba(224,0,32,.45);
+    box-shadow:0 0 22px rgba(224,0,32,.35);
 }
 
 .brand b{
@@ -212,141 +123,92 @@ nav{
 
 .nav-links{
     display:flex;
-
-    align-items:center;
-
     gap:25px;
-
     list-style:none;
 }
 
 .nav-links a{
     color:#90909a;
-
     text-decoration:none;
-
     font-size:13px;
-
     font-weight:800;
-
-    transition:.25s ease;
+    transition:.25s;
 }
 
-.nav-links a:hover{
-    color:#fff;
+.nav-links a:hover,
+.nav-links a.active{
+    color:white;
 }
 
 .menu{
     display:none;
-
-    width:44px;
-    height:44px;
-
-    border-radius:12px;
-
+    width:42px;
+    height:42px;
+    border-radius:10px;
     border:1px solid #29292f;
-
     background:#111116;
-
-    color:#fff;
-
-    font-size:21px;
-
-    cursor:pointer;
+    color:white;
+    font-size:20px;
 }
 
-
-/* =========================================================
-   GENERAL
-========================================================= */
+/* GENERAL */
 
 section{
-    position:relative;
-
     padding:110px 6%;
+    position:relative;
 }
 
 .container{
-    width:100%;
-
     max-width:var(--max);
-
     margin:auto;
 }
 
 .section-head{
     text-align:center;
-
     margin-bottom:48px;
 }
 
 .kicker{
     color:#ff6075;
-
     font-size:11px;
-
     font-weight:900;
-
     letter-spacing:2px;
-
     text-transform:uppercase;
 }
 
 .section-head h2{
     font-size:clamp(32px,5vw,48px);
-
     line-height:1;
-
     margin-top:10px;
 }
 
 .section-head p{
     color:#777;
-
-    margin-top:13px;
+    margin-top:12px;
 }
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
 
 .btns{
     display:flex;
-
     gap:12px;
-
     flex-wrap:wrap;
 }
 
 .btn{
     min-height:48px;
-
     padding:0 20px;
-
     display:inline-flex;
-
     align-items:center;
     justify-content:center;
-
     gap:9px;
-
     border-radius:11px;
-
     text-decoration:none;
-
-    color:#fff;
-
+    color:white;
     font-size:13px;
-
     font-weight:900;
-
     border:1px solid transparent;
-
-    transition:
-        transform .3s ease,
-        background .25s ease,
-        border-color .25s ease;
+    transition:transform .8s cubic-bezier(.16,1,.3,1),
+               background .25s,
+               border-color .25s;
 }
 
 .btn:hover{
@@ -354,111 +216,68 @@ section{
 }
 
 .btn-red{
-    background:
-        linear-gradient(
-            135deg,
-            var(--red),
-            var(--red2)
-        );
-
-    box-shadow:
-        0 10px 30px rgba(224,0,32,.18);
+    background:linear-gradient(135deg,var(--red),var(--red2));
+    box-shadow:0 10px 30px rgba(224,0,32,.18);
 }
 
 .btn-dark{
     background:#141419;
-
     border-color:#2a2a31;
 }
 
 .btn-purple{
     background:#17121f;
-
     border-color:#403252;
 }
-
-
-/* =========================================================
-   SOCIAL ICONS
-========================================================= */
 
 .social-icon{
     width:18px;
     height:18px;
-
-    flex:0 0 18px;
-
     fill:currentColor;
+    flex:0 0 18px;
 }
 
-
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .hero{
     min-height:100vh;
-
     display:flex;
-
     align-items:center;
-
     padding-top:130px;
-
     overflow:hidden;
 }
 
 .hero-grid{
     width:100%;
-
     max-width:var(--max);
-
     margin:auto;
-
     display:grid;
-
-    grid-template-columns:
-        minmax(0,1fr)
-        minmax(0,1fr);
-
-    gap:25px;
-
+    grid-template-columns:1fr 1fr;
+    gap:30px;
     align-items:center;
 }
 
 .hero-copy{
-    z-index:5;
+    z-index:2;
 }
 
 .badge{
     display:inline-flex;
-
     padding:9px 16px;
-
     border-radius:999px;
-
     color:#ff6075;
-
     background:rgba(224,0,32,.07);
-
     border:1px solid rgba(224,0,32,.4);
-
     font-size:12px;
-
     font-weight:900;
-
     letter-spacing:1px;
 }
 
 .hero h1{
     margin-top:22px;
-
     font-size:clamp(58px,8vw,105px);
-
     line-height:.86;
-
     letter-spacing:-6px;
-
     font-weight:950;
 }
 
@@ -467,129 +286,73 @@ section{
 }
 
 .hero-desc{
-    max-width:620px;
-
+    max-width:650px;
     color:#999;
-
     font-size:17px;
-
     line-height:1.75;
-
     margin:28px 0;
 }
 
 .hero-stats{
     display:flex;
-
     gap:10px;
-
     flex-wrap:wrap;
-
     margin-top:25px;
 }
 
 .stat{
     padding:10px 13px;
-
     border-radius:10px;
-
     background:rgba(255,255,255,.035);
-
     border:1px solid var(--line);
-
     color:#999;
-
     font-size:11px;
-
     font-weight:800;
 }
 
 .stat strong{
-    color:#fff;
+    color:white;
 }
 
-
-/* =========================================================
-   3D SKIN VIEWER
-========================================================= */
+/* 3D SKIN */
 
 .hero-visual{
+    min-height:620px;
     position:relative;
-
-    width:100%;
-
-    min-height:650px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
-    overflow:hidden;
 }
 
 .hero-aura{
     position:absolute;
-
-    width:540px;
-    height:540px;
-
-    left:50%;
-    top:50%;
-
-    transform:
-        translate(-50%,-50%);
-
+    width:560px;
+    height:560px;
     border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(224,0,32,.18) 0%,
-            rgba(224,0,32,.06) 38%,
-            transparent 72%
-        );
-
-    pointer-events:none;
+    background:radial-gradient(
+        circle,
+        rgba(224,0,32,.16),
+        rgba(224,0,32,.05) 35%,
+        transparent 70%
+    );
 }
 
 .hero-skin-wrap{
     position:relative;
-
     z-index:2;
-
-    width:560px;
-    height:650px;
-
+    width:610px;
+    height:720px;
     max-width:100%;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
-    margin:auto;
 }
 
 #skin_container{
-    display:block;
-
-    width:100% !important;
-    height:100% !important;
-
-    background:transparent;
-
+    width:100%;
+    height:100%;
     cursor:grab;
-
     touch-action:none;
-
-    user-select:none;
-
-    -webkit-user-select:none;
-
-    outline:none;
 }
 
 #skin_container:active{
@@ -598,116 +361,63 @@ section{
 
 .skin-hint{
     position:absolute;
-
     left:50%;
-
-    bottom:18px;
-
-    transform:
-        translateX(-50%);
-
-    z-index:5;
-
-    padding:9px 15px;
-
+    bottom:35px;
+    transform:translateX(-50%);
+    padding:9px 14px;
     border-radius:999px;
-
-    background:rgba(8,8,12,.86);
-
+    background:rgba(8,8,12,.8);
     border:1px solid var(--line);
-
     color:#888;
-
     font-size:10px;
-
     font-weight:800;
-
     white-space:nowrap;
-
     pointer-events:none;
-
-    backdrop-filter:blur(8px);
 }
 
 .hero-tag{
     position:absolute;
-
-    right:0;
-
-    bottom:60px;
-
-    z-index:6;
-
+    right:20px;
+    bottom:65px;
+    z-index:3;
     padding:12px 15px;
-
     border-radius:13px;
-
-    background:rgba(10,10,14,.92);
-
+    background:rgba(10,10,14,.9);
     border:1px solid var(--line);
-
     font-size:11px;
-
     font-weight:900;
-
-    pointer-events:none;
-
-    backdrop-filter:blur(8px);
 }
 
 .hero-tag span{
     display:block;
-
     color:#777;
-
     margin-top:3px;
-
     font-weight:600;
 }
 
-
-/* =========================================================
-   CARDS
-========================================================= */
+/* CARDS */
 
 .card-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:18px;
 }
 
 .card{
     padding:28px;
-
     border-radius:20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #121218,
-            #0b0b0f
-        );
-
+    background:linear-gradient(145deg,#121218,#0b0b0f);
     border:1px solid var(--line);
-
-    transition:
-        transform .4s ease,
-        border-color .4s ease;
+    transition:.5s;
 }
 
 .card:hover{
     transform:translateY(-7px);
-
-    border-color:
-        rgba(224,0,32,.4);
+    border-color:rgba(224,0,32,.4);
 }
 
 .card-icon{
     font-size:30px;
-
     margin-bottom:18px;
 }
 
@@ -717,52 +427,32 @@ section{
 
 .card p{
     color:#7e7e88;
-
     font-size:14px;
-
     line-height:1.7;
 }
 
-
-/* =========================================================
-   ABOUT
-========================================================= */
+/* ABOUT */
 
 .about-box{
     display:grid;
-
-    grid-template-columns:
-        250px 1fr;
-
+    grid-template-columns:250px 1fr;
     gap:50px;
-
     align-items:center;
-
     padding:48px;
-
     border-radius:27px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(224,0,32,.09),
-            #0c0c11 55%
-        );
-
+    background:linear-gradient(
+        135deg,
+        rgba(224,0,32,.09),
+        #0c0c11 55%
+    );
     border:1px solid var(--line);
 }
 
 .about-img{
     width:100%;
-
     height:320px;
-
     object-fit:contain;
-
-    filter:
-        drop-shadow(
-            0 18px 30px rgba(0,0,0,.5)
-        );
+    filter:drop-shadow(0 18px 30px rgba(0,0,0,.5));
 }
 
 .about-name{
@@ -771,240 +461,154 @@ section{
 
 .about-role{
     color:var(--red2);
-
     font-weight:900;
-
     margin:12px 0 18px;
 }
 
 .staff{
     display:inline-flex;
-
     padding:8px 13px;
-
     border-radius:999px;
-
     color:#ff6b7e;
-
     background:rgba(224,0,32,.07);
-
     border:1px solid rgba(224,0,32,.25);
-
     font-size:11px;
-
     font-weight:900;
-
     margin-bottom:20px;
 }
 
 .about-copy{
     color:#999;
-
     line-height:1.85;
 }
 
 .about-copy strong{
-    color:#fff;
+    color:white;
 }
 
-
-/* =========================================================
-   YOUTUBE
-========================================================= */
+/* YOUTUBE */
 
 .youtube-box{
     padding:55px;
-
     text-align:center;
-
     border-radius:27px;
-
     background:
         radial-gradient(
             circle at 85% 15%,
             rgba(224,0,32,.12),
             transparent 30%
         ),
-        linear-gradient(
-            145deg,
-            #121217,
-            #09090d
-        );
-
+        linear-gradient(145deg,#121217,#09090d);
     border:1px solid var(--line);
 }
 
 .sub-count{
-    font-size:
-        clamp(48px,7vw,72px);
-
+    font-size:clamp(48px,7vw,72px);
     font-weight:950;
-
     color:var(--red2);
-
     margin:16px 0 0;
 }
 
 .sub-label{
     color:#777;
-
     font-size:11px;
-
     font-weight:900;
-
     letter-spacing:2px;
-
     margin-bottom:20px;
 }
 
 .youtube-box p{
     color:#888;
-
     max-width:650px;
-
     margin:0 auto 25px;
-
     line-height:1.75;
 }
 
 .chips{
     display:flex;
-
     justify-content:center;
-
     gap:9px;
-
     flex-wrap:wrap;
-
     margin:20px 0 25px;
 }
 
 .chip{
     padding:8px 12px;
-
     border-radius:999px;
-
     background:#17171c;
-
     border:1px solid #29292f;
-
     color:#aaa;
-
     font-size:11px;
-
     font-weight:800;
 }
 
-
-/* =========================================================
-   COMMUNITY
-========================================================= */
+/* COMMUNITY */
 
 .community-box{
     display:grid;
-
-    grid-template-columns:
-        260px 1fr;
-
+    grid-template-columns:260px 1fr;
     gap:45px;
-
     align-items:center;
-
     padding:45px;
-
     border-radius:27px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(224,0,32,.08),
-            #0b0b10 60%
-        );
-
+    background:linear-gradient(
+        135deg,
+        rgba(224,0,32,.08),
+        #0b0b10 60%
+    );
     border:1px solid var(--line);
 }
 
 .community-logo{
     width:260px;
     height:260px;
-
     object-fit:cover;
-
     border-radius:24px;
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.35);
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
 }
 
 .community-box h3{
     font-size:35px;
-
     margin-bottom:14px;
 }
 
 .community-box p{
     color:#999;
-
     line-height:1.8;
-
     margin-bottom:22px;
 }
 
 .feature-list{
     display:flex;
-
     gap:8px;
-
     flex-wrap:wrap;
-
     margin-bottom:22px;
 }
 
 .feature-list span{
     padding:8px 10px;
-
     border-radius:9px;
-
     background:#15151a;
-
     border:1px solid #28282e;
-
     color:#aaa;
-
     font-size:11px;
-
     font-weight:800;
 }
 
-
-/* =========================================================
-   MINECRAFT SERVER
-========================================================= */
+/* SERVER */
 
 .server{
     text-align:center;
-
     max-width:900px;
-
     margin:auto;
-
     padding:60px 30px;
-
     border-radius:27px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #111116,
-            #09090d
-        );
-
+    background:linear-gradient(145deg,#111116,#09090d);
     border:1px solid var(--line);
 }
 
 .server-icon{
     font-size:55px;
-
     margin-bottom:12px;
 }
 
@@ -1014,313 +618,215 @@ section{
 
 .status{
     display:inline-flex;
-
     margin:15px 0;
-
     padding:8px 15px;
-
     border-radius:999px;
-
     color:#ffb020;
-
     background:rgba(255,160,0,.07);
-
     border:1px solid rgba(255,160,0,.25);
-
     font-size:12px;
-
     font-weight:900;
 }
 
 .server p{
     color:#777;
-
-    margin-bottom:25px;
 }
 
-
-/* =========================================================
-   BANDHILKI
-========================================================= */
+/* BANDHILKI */
 
 .smp-box{
     display:grid;
-
-    grid-template-columns:
-        280px 1fr;
-
+    grid-template-columns:280px 1fr;
     gap:45px;
-
     align-items:center;
-
     padding:42px;
-
     border-radius:28px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(113,66,190,.13),
-            #0b0b10 65%
-        );
-
-    border:1px solid
-        rgba(155,108,255,.18);
+    background:linear-gradient(
+        135deg,
+        rgba(113,66,190,.13),
+        #0b0b10 65%
+    );
+    border:1px solid rgba(155,108,255,.18);
 }
 
 .smp-logo{
     width:260px;
     height:260px;
-
     object-fit:contain;
-
     margin:auto;
-
-    filter:
-        drop-shadow(
-            0 20px 30px rgba(0,0,0,.45)
-        );
+    filter:drop-shadow(0 20px 30px rgba(0,0,0,.45));
 }
 
-.smp-box h3{
-    font-size:35px;
-
-    margin-bottom:10px;
+.smp-kicker{
+    display:inline-flex;
+    padding:7px 12px;
+    border-radius:999px;
+    color:#c8a9ff;
+    background:rgba(120,60,255,.08);
+    border:1px solid rgba(155,108,255,.25);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
 }
 
-.smp-box p{
+.smp-content h3{
+    font-size:42px;
+    margin:14px 0 10px;
+}
+
+.smp-content h3 span{
+    color:#c59cff;
+}
+
+.smp-content p{
     color:#999;
-
     line-height:1.8;
+    margin-bottom:20px;
+}
 
+.smp-meta{
+    display:flex;
+    gap:9px;
+    flex-wrap:wrap;
     margin-bottom:22px;
 }
 
-.smp-tag{
-    display:inline-flex;
-
-    padding:7px 11px;
-
-    border-radius:999px;
-
-    background:rgba(154,108,255,.08);
-
-    border:1px solid
-        rgba(154,108,255,.25);
-
-    color:#bda5ff;
-
-    font-size:10px;
-
-    font-weight:900;
-
-    margin-bottom:15px;
-}
-
-
-/* =========================================================
-   SOCIALS
-========================================================= */
-
-.social-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-}
-
-.social-card{
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    padding:22px;
-
-    border-radius:18px;
-
-    background:#101015;
-
-    border:1px solid var(--line);
-
-    text-decoration:none;
-
-    transition:
-        transform .3s ease,
-        border-color .3s ease;
-}
-
-.social-card:hover{
-    transform:translateY(-5px);
-
-    border-color:
-        rgba(224,0,32,.4);
-}
-
-.social-card svg{
-    width:28px;
-    height:28px;
-
-    fill:currentColor;
-
-    flex:0 0 28px;
-}
-
-.social-card div{
-    display:flex;
-
-    flex-direction:column;
-}
-
-.social-card strong{
-    font-size:14px;
-}
-
-.social-card span{
-    color:#777;
-
+.smp-meta span{
+    padding:8px 11px;
+    border-radius:9px;
+    background:#15131b;
+    border:1px solid #2b2534;
+    color:#aaa;
     font-size:11px;
-
-    margin-top:3px;
+    font-weight:800;
 }
 
+/* FOOTER */
 
-/* =========================================================
-   FOOTER
-========================================================= */
+.socials{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
 
 footer{
-    padding:45px 6%;
-
-    border-top:1px solid var(--line);
-
-    background:#050507;
-
+    padding:50px 20px;
     text-align:center;
-}
-
-.footer-logo{
-    width:55px;
-    height:55px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    margin-bottom:12px;
-}
-
-footer h3{
-    font-size:18px;
-
-    margin-bottom:7px;
-}
-
-footer p{
+    border-top:1px solid var(--line);
     color:#666;
+}
 
-    font-size:11px;
+footer strong{
+    color:white;
+}
+
+footer span{
+    color:var(--red2);
 }
 
 .footer-links{
     display:flex;
-
     justify-content:center;
-
-    flex-wrap:wrap;
-
     gap:18px;
-
-    margin:20px 0;
+    flex-wrap:wrap;
+    margin-top:17px;
 }
 
 .footer-links a{
     color:#777;
-
     text-decoration:none;
-
-    font-size:11px;
-
+    font-size:12px;
     font-weight:800;
 }
 
 .footer-links a:hover{
-    color:#fff;
+    color:white;
 }
 
+/* REVEAL */
 
-/* =========================================================
-   MOBILE NAV
-========================================================= */
+.reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .7s ease,transform .7s ease;
+}
 
-@media(max-width:850px){
+.reveal.visible{
+    opacity:1;
+    transform:none;
+}
+
+/* TOP */
+
+.top{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    color:white;
+    background:#15151a;
+    border:1px solid #2b2b31;
+    text-decoration:none;
+    font-weight:900;
+    opacity:0;
+    visibility:hidden;
+    transition:.25s;
+    z-index:900;
+}
+
+.top.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.top:hover{
+    background:var(--red);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
 
     nav{
-        height:70px;
-
         padding:0 5%;
     }
 
     .nav-links{
         position:absolute;
-
-        top:70px;
-
-        left:0;
-
-        width:100%;
-
-        padding:15px 5% 22px;
-
+        left:5%;
+        right:5%;
+        top:76px;
         display:none;
-
         flex-direction:column;
-
         gap:0;
-
-        background:
-            rgba(6,6,9,.98);
-
-        border-bottom:
-            1px solid var(--line);
-
-        backdrop-filter:blur(15px);
+        background:#0b0b10;
+        border:1px solid #29292f;
+        border-radius:15px;
+        overflow:hidden;
     }
 
     .nav-links.open{
         display:flex;
     }
 
-    .nav-links li{
-        width:100%;
-    }
-
     .nav-links a{
         display:block;
-
-        padding:13px 0;
-
-        font-size:14px;
+        padding:15px 18px;
+        border-bottom:1px solid #202027;
     }
 
     .menu{
         display:block;
     }
 
-    .hero{
-        padding-top:105px;
-    }
-
     .hero-grid{
         grid-template-columns:1fr;
-
-        gap:10px;
-    }
-
-    .hero-copy{
         text-align:center;
     }
 
@@ -1333,346 +839,202 @@ footer p{
         justify-content:center;
     }
 
-    .hero-stats{
-        justify-content:center;
-    }
-
     .hero-visual{
-        min-height:560px;
+        min-height:470px;
     }
 
     .hero-skin-wrap{
-        width:390px;
-
-        height:520px;
-
-        max-width:94vw;
-    }
-
-    #skin_container{
-        width:100% !important;
-
-        height:100% !important;
-    }
-
-    .hero-aura{
-        width:430px;
-        height:430px;
-    }
-
-    .hero-tag{
-        right:8px;
-
-        bottom:45px;
+        width:400px;
+        height:500px;
     }
 
     .card-grid{
         grid-template-columns:1fr;
     }
 
-    .about-box{
+    .about-box,
+    .community-box,
+    .smp-box{
         grid-template-columns:1fr;
-
-        text-align:center;
-
-        gap:25px;
-    }
-
-    .about-img{
-        max-width:230px;
-
-        margin:auto;
-    }
-
-    .community-box{
-        grid-template-columns:1fr;
-
         text-align:center;
     }
 
-    .community-logo{
-        margin:auto;
-    }
-
-    .feature-list{
+    .feature-list,
+    .smp-meta{
         justify-content:center;
     }
 
-    .smp-box{
-        grid-template-columns:1fr;
-
-        text-align:center;
-    }
-
-    .social-grid{
-        grid-template-columns:1fr;
+    .about-img{
+        height:260px;
     }
 }
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
 
 @media(max-width:520px){
 
     section{
-        padding:
-            85px 5%;
+        padding:80px 5%;
     }
 
     .brand{
-        font-size:15px;
-    }
-
-    .brand img{
-        width:38px;
-        height:38px;
-    }
-
-    .hero h1{
-        font-size:
-            clamp(
-                48px,
-                15vw,
-                75px
-            );
-
-        letter-spacing:-4px;
-    }
-
-    .hero-desc{
         font-size:14px;
     }
 
+    .brand img{
+        width:36px;
+        height:36px;
+    }
+
+    .hero h1{
+        font-size:54px;
+        letter-spacing:-4px;
+    }
+
     .hero-visual{
-        min-height:500px;
+        min-height:390px;
     }
 
     .hero-skin-wrap{
-        width:340px;
-
-        height:450px;
-
-        max-width:94vw;
-    }
-
-    #skin_container{
-        width:100% !important;
-
-        height:100% !important;
-    }
-
-    .hero-aura{
-        width:360px;
-
-        height:360px;
+        width:320px;
+        height:420px;
     }
 
     .skin-hint{
-        bottom:8px;
-
-        padding:7px 11px;
-
-        font-size:8px;
+        font-size:9px;
     }
 
     .hero-tag{
-        right:0;
-
-        bottom:38px;
-
-        padding:9px 11px;
-
+        right:5px;
+        bottom:20px;
         font-size:9px;
     }
 
     .about-box,
     .community-box,
-    .smp-box{
+    .smp-box,
+    .youtube-box{
         padding:28px 20px;
     }
 
     .community-logo{
-        width:220px;
-        height:220px;
+        width:200px;
+        height:200px;
     }
 
     .smp-logo{
-        width:220px;
-        height:220px;
+        width:210px;
+        height:210px;
     }
 
-    .youtube-box{
-        padding:35px 20px;
+    .smp-content h3{
+        font-size:34px;
     }
 
-    .sub-count{
-        font-size:50px;
+    .btn{
+        width:100%;
     }
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
-
-    *{
-        scroll-behavior:auto !important;
-    }
-
 }
 
 </style>
-
 </head>
-
 
 <body>
 
+<!-- NAV -->
 
-<!-- ========================================================
-     NAVBAR
-========================================================= -->
+<nav id="nav">
 
-<nav>
+    <a class="brand" href="#home">
 
-    <a href="#home" class="brand">
-
-        <img
-            src="deadeye-logo.png"
-            alt="DEADEYE X GAMING">
+        <img src="deadeye-logo.png" alt="DEADEYE X GAMING">
 
         DEADEYE <b>X</b> GAMING
 
     </a>
 
+    <button class="menu" id="menu">
+        ☰
+    </button>
 
     <ul class="nav-links" id="navLinks">
 
-        <li>
-            <a href="#home">
-                Home
-            </a>
-        </li>
+        <li><a href="#home">Home</a></li>
 
-        <li>
-            <a href="#about">
-                About
-            </a>
-        </li>
+        <li><a href="#about">About</a></li>
 
-        <li>
-            <a href="#youtube">
-                YouTube
-            </a>
-        </li>
+        <li><a href="#youtube">YouTube</a></li>
 
-        <li>
-            <a href="#community">
-                Community
-            </a>
-        </li>
+        <li><a href="#community">Community</a></li>
 
-        <li>
-            <a href="#minecraft">
-                Minecraft
-            </a>
-        </li>
+        <li><a href="#minecraft">Minecraft</a></li>
 
-        <li>
-            <a href="#bandhilki">
-                Bandhilki SMP
-            </a>
-        </li>
+        <li><a href="#bandhilki">Bandhilki SMP</a></li>
+
+        <li><a href="#events">Events</a></li>
 
     </ul>
-
-
-    <button
-        class="menu"
-        id="menuBtn"
-        aria-label="Open menu">
-
-        ☰
-
-    </button>
 
 </nav>
 
 
+<!-- HERO -->
 
-<!-- ========================================================
-     HOME / HERO
-========================================================= -->
-
-<section
-    class="hero"
-    id="home">
+<section class="hero" id="home">
 
     <div class="hero-grid">
 
-
-        <div class="hero-copy">
+        <div class="hero-copy reveal">
 
             <div class="badge">
-                ✦ OFFICIAL GAMING WEBSITE
+                ✦ DEADEYE X GAMING
             </div>
 
-
             <h1>
-                DEADEYE
-                <span>X</span>
-                GAMING
+                PLAY.<br>
+                CONNECT.<br>
+                <span>CREATE.</span>
             </h1>
-
 
             <p class="hero-desc">
 
-                Gaming, Minecraft, content creation
-                and community — all in one place.
-
-                Connect. Chill. Play. Create memories.
+                Welcome to the official world of Deadeye —
+                Minecraft, livestreams, gaming, community
+                events and unforgettable moments.
 
             </p>
-
 
             <div class="btns">
 
                 <a
-                    href="https://www.youtube.com/@DeadeyeGaming"
+                    class="btn btn-red"
+                    href="https://discord.gg/PNeCwRrtMS"
                     target="_blank"
-                    rel="noopener"
-                    class="btn btn-red">
+                    rel="noopener noreferrer"
+                >
 
-                    ▶ YouTube
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M19.5 4.4A16.8 16.8 0 0 0 15.4 3l-.5 1a15.2 15.2 0 0 0-5.8 0l-.5-1a16.8 16.8 0 0 0-4.1 1.4C1.8 7.1 1.1 9.8.8 12.4c1.8 1.3 3.6 2.1 5.5 2.7.5-.7.9-1.4 1.2-2.1-.7-.3-1.3-.6-1.9-1 .2-.2.4-.3.6-.5 3.7 1.7 7.7 1.7 11.4 0 .2.2.4.3.6.5-.6.4-1.2.7-1.9 1 .3.7.7 1.4 1.2 2.1 1.9-.6 3.7-1.4 5.5-2.7-.3-2.6-1-5.3-3.5-8ZM8.7 12.2c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm6.6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Z"/>
+                    </svg>
+
+                    Join Discord
 
                 </a>
 
-
                 <a
-                    href="https://discord.gg/EBtRqXd8Fq"
+                    class="btn btn-dark"
+                    href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7"
                     target="_blank"
-                    rel="noopener"
-                    class="btn btn-dark">
+                    rel="noopener noreferrer"
+                >
 
-                    💬 Join Community
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.9V8.1l6.8 3.9-6.8 3.9Z"/>
+                    </svg>
 
-                </a>
-
-
-                <a
-                    href="#minecraft"
-                    class="btn btn-purple">
-
-                    ⛏ Minecraft
+                    YouTube
 
                 </a>
 
             </div>
-
 
             <div class="hero-stats">
 
@@ -1693,38 +1055,32 @@ footer p{
         </div>
 
 
+        <!-- 3D SKIN -->
 
-        <!-- =================================================
-             3D SKIN
-        ================================================== -->
-
-        <div class="hero-visual">
+        <div class="hero-visual reveal">
 
             <div class="hero-aura"></div>
-
 
             <div class="hero-skin-wrap">
 
                 <canvas
                     id="skin_container"
-                    aria-label="Interactive DEADEYE Minecraft skin">
-                </canvas>
-
+                    aria-label="Interactive 3D Deadeye Minecraft Skin"
+                ></canvas>
 
                 <div class="skin-hint">
                     🖱️ Drag to rotate • Scroll to zoom
                 </div>
 
+            </div>
 
-                <div class="hero-tag">
+            <div class="hero-tag">
 
-                    👑 DEADEYE
+                👑 DEADEYE
 
-                    <span>
-                        Gaming • Community • Minecraft
-                    </span>
-
-                </div>
+                <span>
+                    Gaming • Community • Minecraft
+                </span>
 
             </div>
 
@@ -1735,75 +1091,71 @@ footer p{
 </section>
 
 
-
-<!-- ========================================================
-     ABOUT
-========================================================= -->
+<!-- ABOUT -->
 
 <section id="about">
 
     <div class="container">
 
-        <div class="section-head">
+        <div class="section-head reveal">
 
             <div class="kicker">
-                ABOUT
+                About the creator
             </div>
 
             <h2>
-                Meet DEADEYE
+                Meet Deadeye
             </h2>
 
             <p>
-                Creator • Gamer • Community Manager
+                The person behind DEADEYE X GAMING.
             </p>
 
         </div>
 
 
-        <div class="about-box">
-
+        <div class="about-box reveal">
 
             <img
                 class="about-img"
                 src="deadeye-skin.png"
-                alt="DEADEYE Minecraft Skin">
-
+                alt="Deadeye"
+            >
 
             <div>
 
-                <h3 class="about-name">
-                    DEADEYE
-                </h3>
-
+                <div class="about-name">
+                    Vaibhav
+                </div>
 
                 <div class="about-role">
-                    Minecraft Creator & Gaming Content Creator
+                    DEADEYE X GAMING
                 </div>
-
 
                 <div class="staff">
-                    ROLE • Staff Manager • Coordinator
+                    👑 ROLE — Staff Manager • Coordinator
                 </div>
-
 
                 <p class="about-copy">
 
-                    Welcome to the official DEADEYE X GAMING
-                    website.
+                    I'm Vaibhav, better known online as
+                    <strong>Deadeye</strong>.
+
+                    I'm a gamer, content creator and community
+                    builder who enjoys Minecraft, gaming,
+                    livestreaming and creating memorable moments.
 
                     <br><br>
 
-                    I create Minecraft content, manage gaming
-                    communities and build projects around
-                    Minecraft, SMPs and gaming.
+                    I'm also the
+                    <strong>Staff Manager (Coordinator)</strong>
+                    of Bandhilki SMP, helping coordinate the
+                    staff team and contribute to the SMP community.
 
                     <br><br>
 
-                    <strong>
-                        Minecraft is the main game,
-                        but the community is the real family.
-                    </strong>
+                    Gaming is where I create, connect and have
+                    fun with the community.
 
                 </p>
 
@@ -1816,85 +1168,87 @@ footer p{
 </section>
 
 
-
-<!-- ========================================================
-     YOUTUBE
-========================================================= -->
+<!-- YOUTUBE -->
 
 <section id="youtube">
 
     <div class="container">
 
-        <div class="section-head">
+        <div class="section-head reveal">
 
             <div class="kicker">
-                CONTENT
+                Content creator
             </div>
 
             <h2>
-                YouTube
+                DEADEYE X GAMING
             </h2>
 
             <p>
-                Minecraft • Gaming • Live Streams
+                Minecraft, gaming & SMP livestreams.
             </p>
 
         </div>
 
 
-        <div class="youtube-box">
+        <div class="youtube-box reveal">
 
+            <h2>
+                Road to the next milestone 🚀
+            </h2>
 
             <div class="sub-count">
                 3,000+
             </div>
 
-
             <div class="sub-label">
-                SUBSCRIBERS
+                YOUTUBE SUBSCRIBERS
             </div>
-
-
-            <p>
-
-                Watch Minecraft adventures, SMP streams,
-                tutorials, challenges and gaming content
-                on the official DEADEYE Gaming channel.
-
-            </p>
-
 
             <div class="chips">
 
-                <div class="chip">
-                    ⛏ Minecraft
-                </div>
+                <span class="chip">
+                    ⛏️ Minecraft
+                </span>
 
-                <div class="chip">
+                <span class="chip">
                     🔴 Live Streams
-                </div>
+                </span>
 
-                <div class="chip">
-                    🎬 Gaming Videos
-                </div>
+                <span class="chip">
+                    👑 Bandhilki SMP
+                </span>
 
-                <div class="chip">
-                    ⚡ Shorts
-                </div>
+                <span class="chip">
+                    🎮 Gaming
+                </span>
 
             </div>
 
+            <p>
 
-            <div class="btns"
-                 style="justify-content:center;">
+                Minecraft SMP livestreams, gaming content
+                and special community moments.
+
+            </p>
+
+            <div
+                class="btns"
+                style="justify-content:center"
+            >
 
                 <a
-                    href="https://www.youtube.com/@DeadeyeGaming"
+                    class="btn btn-red"
+                    href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7"
                     target="_blank"
-                    rel="noopener"
-                    class="btn btn-red">
+                    rel="noopener noreferrer"
+                >
 
-                    ▶ Visit YouTube
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.9V8.1l6.8 3.9-6.8 3.9Z"/>
+                    </svg>
+
+                    Visit YouTube
 
                 </a>
 
@@ -1907,19 +1261,16 @@ footer p{
 </section>
 
 
-
-<!-- ========================================================
-     COMMUNITY
-========================================================= -->
+<!-- COMMUNITY -->
 
 <section id="community">
 
     <div class="container">
 
-        <div class="section-head">
+        <div class="section-head reveal">
 
             <div class="kicker">
-                COMMUNITY
+                Our community
             </div>
 
             <h2>
@@ -1927,22 +1278,19 @@ footer p{
             </h2>
 
             <p>
-                Connect with gamers and creators.
+                Connect. Chill. Play. Create memories.
             </p>
 
         </div>
 
 
-        <div class="community-box">
-
-
-            <!-- KEEP COMMUNITY PNG -->
+        <div class="community-box reveal">
 
             <img
                 class="community-logo"
-                src="community-logo.png"
-                alt="DEADEYE Community">
-
+                src="community-logo.PNG"
+                alt="DEADEYE'S COMMUNITY"
+            >
 
             <div>
 
@@ -1950,23 +1298,16 @@ footer p{
                     Join the family. 👑
                 </h3>
 
-
                 <div class="feature-list">
 
                     <span>🎮 Gaming</span>
-
                     <span>🎙️ Voice Chats</span>
-
                     <span>🎉 Events</span>
-
                     <span>🎁 Giveaways</span>
-
                     <span>🍿 Watch Parties</span>
-
                     <span>⛏️ Minecraft</span>
 
                 </div>
-
 
                 <p>
 
@@ -1976,14 +1317,18 @@ footer p{
 
                 </p>
 
-
                 <a
-                    href="https://discord.gg/EBtRqXd8Fq"
+                    class="btn btn-red"
+                    href="https://discord.gg/PNeCwRrtMS"
                     target="_blank"
-                    rel="noopener"
-                    class="btn btn-red">
+                    rel="noopener noreferrer"
+                >
 
-                    💬 Join DEADEYE'S COMMUNITY
+                    <svg class="social-icon" viewBox="0 0 24 24">
+                        <path d="M19.5 4.4A16.8 16.8 0 0 0 15.4 3l-.5 1a15.2 15.2 0 0 0-5.8 0l-.5-1a16.8 16.8 0 0 0-4.1 1.4C1.8 7.1 1.1 9.8.8 12.4c1.8 1.3 3.6 2.1 5.5 2.7.5-.7.9-1.4 1.2-2.1-.7-.3-1.3-.6-1.9-1 .2-.2.4-.3.6-.5 3.7 1.7 7.7 1.7 11.4 0 .2.2.4.3.6.5-.6.4-1.2.7-1.9 1 .3.7.7 1.4 1.2 2.1 1.9-.6 3.7-1.4 5.5-2.7-.3-2.6-1-5.3-3.5-8ZM8.7 12.2c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm6.6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Z"/>
+                    </svg>
+
+                    Join DEADEYE'S COMMUNITY
 
                 </a>
 
@@ -1996,80 +1341,47 @@ footer p{
 </section>
 
 
-
-<!-- ========================================================
-     MINECRAFT
-========================================================= -->
+<!-- MINECRAFT -->
 
 <section id="minecraft">
 
     <div class="container">
 
-        <div class="section-head">
+        <div class="section-head reveal">
 
             <div class="kicker">
-                MINECRAFT
+                Minecraft
             </div>
 
             <h2>
-                Minecraft World
+                DEADEYE SERVER
             </h2>
 
             <p>
-                SMPs, survival and community projects.
+                Your next Minecraft adventure starts here.
             </p>
 
         </div>
 
 
-        <div class="server">
+        <div class="server reveal">
 
             <div class="server-icon">
                 ⛏️
             </div>
 
-
             <h3>
-                DEADEYE Minecraft
+                Server Coming Soon
             </h3>
 
-
             <div class="status">
-                🟢 Minecraft Community
+                🟠 COMING SOON
             </div>
-
 
             <p>
-
-                Survival • SMP • Events • Community
-                • Builds • PvP
-
+                Server information and IP will be
+                available here when the official server launches.
             </p>
-
-
-            <div class="btns"
-                 style="justify-content:center;">
-
-                <a
-                    href="#bandhilki"
-                    class="btn btn-red">
-
-                    🌍 Bandhilki SMP
-
-                </a>
-
-
-                <a
-                    href="https://discord.gg/EBtRqXd8Fq"
-                    target="_blank"
-                    rel="noopener"
-                    class="btn btn-dark">
-
-                    💬 Minecraft Discord
-
-                </a>
-
-            </div>
 
         </div>
 
@@ -2078,19 +1390,16 @@ footer p{
 </section>
 
 
-
-<!-- ========================================================
-     BANDHILKI SMP
-========================================================= -->
+<!-- BANDHILKI SMP -->
 
 <section id="bandhilki">
 
     <div class="container">
 
-        <div class="section-head">
+        <div class="section-head reveal">
 
             <div class="kicker">
-                SMP
+                Minecraft SMP
             </div>
 
             <h2>
@@ -2098,63 +1407,100 @@ footer p{
             </h2>
 
             <p>
-                A community-driven Minecraft SMP.
+                Follow the complete Bandhilki SMP journey.
             </p>
 
         </div>
 
 
-        <div class="smp-box">
-
+        <div class="smp-box reveal">
 
             <img
                 class="smp-logo"
                 src="bandhilki-logo.png"
-                alt="Bandhilki SMP">
-
+                alt="Bandhilki SMP"
+            >
 
             <div>
 
-                <div class="smp-tag">
-                    🌍 BANDHILKI SMP
+                <div class="smp-kicker">
+                    🔴 LIVESTREAM SERIES
                 </div>
 
-
                 <h3>
-                    Build. Survive. Create.
+                    Bandhilki <span>SMP</span>
                 </h3>
-
 
                 <p>
 
-                    Bandhilki SMP is a Minecraft survival
-                    project focused on community,
-                    builds, events, contracts, projects
-                    and unforgettable moments.
+                    Follow my Bandhilki SMP journey —
+                    survival, projects, adventures and
+                    unforgettable moments.
+
+                    <br><br>
+
+                    I'm the
+                    <strong>
+                        Staff Manager (Coordinator)
+                    </strong>
+                    of Bandhilki SMP.
 
                 </p>
+
+
+                <div class="smp-meta">
+
+                    <span>⛏️ Minecraft</span>
+
+                    <span>🔴 Livestreams</span>
+
+                    <span>👑 Staff Manager • Coordinator</span>
+
+                    <span>🎬 Full Playlist</span>
+
+                </div>
 
 
                 <div class="btns">
 
                     <a
+                        class="btn btn-purple"
+                        href="https://youtube.com/playlist?list=PLbCYPd-T7UbaTIg1RRE1XoxLjYRl9Z2oY&si=VBra6l3-eNl9wG6V"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        ▶ Watch Bandhilki SMP
+                    </a>
+
+
+                    <a
+                        class="btn btn-dark"
                         href="https://discord.gg/Kv2D5CjBSf"
                         target="_blank"
-                        rel="noopener"
-                        class="btn btn-red">
+                        rel="noopener noreferrer"
+                    >
 
-                        💬 Bandhilki Discord
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M19.5 4.4A16.8 16.8 0 0 0 15.4 3l-.5 1a15.2 15.2 0 0 0-5.8 0l-.5-1a16.8 16.8 0 0 0-4.1 1.4C1.8 7.1 1.1 9.8.8 12.4c1.8 1.3 3.6 2.1 5.5 2.7.5-.7.9-1.4 1.2-2.1-.7-.3-1.3-.6-1.9-1 .2-.2.4-.3.6-.5 3.7 1.7 7.7 1.7 11.4 0 .2.2.4.3.6.5-.6.4-1.2.7-1.9 1 .3.7.7 1.4 1.2 2.1 1.9-.6 3.7-1.4 5.5-2.7-.3-2.6-1-5.3-3.5-8ZM8.7 12.2c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm6.6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Z"/>
+                        </svg>
+
+                        Join Bandhilki Discord
 
                     </a>
 
 
                     <a
-                        href="https://discord.gg/EBtRqXd8Fq"
+                        class="btn btn-dark"
+                        href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7"
                         target="_blank"
-                        rel="noopener"
-                        class="btn btn-dark">
+                        rel="noopener noreferrer"
+                    >
 
-                        🎮 Main Community
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.9V8.1l6.8 3.9-6.8 3.9Z"/>
+                        </svg>
+
+                        More Videos
 
                     </a>
 
@@ -2169,123 +1515,160 @@ footer p{
 </section>
 
 
+<!-- EVENTS -->
 
-<!-- ========================================================
-     SOCIALS
-========================================================= -->
-
-<section>
+<section id="events">
 
     <div class="container">
 
-        <div class="section-head">
+        <div class="section-head reveal">
 
             <div class="kicker">
-                CONNECT
+                Community activities
             </div>
 
             <h2>
-                Find Me Online
+                Events & Experiences
             </h2>
 
             <p>
-                Follow, watch and join the community.
+                More than just gaming.
             </p>
 
         </div>
 
 
-        <div class="social-grid">
+        <div class="card-grid">
+
+            <div class="card reveal">
+
+                <div class="card-icon">
+                    🍿
+                </div>
+
+                <h3>
+                    Watch Parties
+                </h3>
+
+                <p>
+                    Movie nights and community
+                    watch parties coming soon.
+                </p>
+
+            </div>
 
 
-            <!-- DISCORD -->
+            <div class="card reveal">
+
+                <div class="card-icon">
+                    🎁
+                </div>
+
+                <h3>
+                    Giveaways
+                </h3>
+
+                <p>
+                    Community giveaways,
+                    rewards and special surprises.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="card-icon">
+                    🎮
+                </div>
+
+                <h3>
+                    Gaming Events
+                </h3>
+
+                <p>
+                    Gaming sessions, competitions
+                    and community events.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SOCIALS -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div class="kicker">
+                Connect with us
+            </div>
+
+            <h2>
+                Stay Connected
+            </h2>
+
+            <p>
+                Follow the DEADEYE journey everywhere.
+            </p>
+
+        </div>
+
+
+        <div class="socials reveal">
 
             <a
-                href="https://discord.gg/EBtRqXd8Fq"
+                class="btn btn-red"
+                href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7"
                 target="_blank"
-                rel="noopener"
-                class="social-card">
+                rel="noopener noreferrer"
+            >
 
-                <svg viewBox="0 0 24 24">
-
-                    <path d="M19.54 4.36A16.66 16.66 0 0 0 15.5 3l-.5 1.03a15.3 15.3 0 0 0-6 0L8.5 3a16.66 16.66 0 0 0-4.04 1.36C1.9 8.26 1.2 12.06 1.55 15.8A16.7 16.7 0 0 0 6.5 18.3l1.2-1.64c-.65-.24-1.27-.54-1.85-.9l.45-.34c3.57 1.67 7.43 1.67 10.96 0l.46.34c-.59.36-1.21.66-1.86.9l1.2 1.64a16.7 16.7 0 0 0 4.95-2.5c.42-4.34-.72-8.1-2.47-11.44ZM8.3 14.25c-1.06 0-1.94-.98-1.94-2.18s.86-2.18 1.94-2.18c1.09 0 1.96.98 1.94 2.18 0 1.2-.86 2.18-1.94 2.18Zm7.4 0c-1.06 0-1.94-.98-1.94-2.18s.86-2.18 1.94-2.18c1.09 0 1.96.98 1.94 2.18 0 1.2-.86 2.18-1.94 2.18Z"/>
-
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.9V8.1l6.8 3.9-6.8 3.9Z"/>
                 </svg>
 
-
-                <div>
-
-                    <strong>
-                        Discord
-                    </strong>
-
-                    <span>
-                        Join the community
-                    </span>
-
-                </div>
+                YouTube
 
             </a>
 
 
-
-            <!-- YOUTUBE -->
-
             <a
-                href="https://www.youtube.com/@DeadeyeGaming"
+                class="btn btn-dark"
+                href="https://discord.gg/PNeCwRrtMS"
                 target="_blank"
-                rel="noopener"
-                class="social-card">
+                rel="noopener noreferrer"
+            >
 
-                <svg viewBox="0 0 24 24">
-
-                    <path d="M23.5 6.2a3 3 0 0 0-2.1-2.12C19.55 3.5 12 3.5 12 3.5s-7.55 0-9.4.58A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.12c1.85.58 9.4.58 9.4.58s7.55 0 9.4-.58a3 3 0 0 0 2.1-2.12A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8ZM9.6 15.5v-7l6.2 3.5-6.2 3.5Z"/>
-
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M19.5 4.4A16.8 16.8 0 0 0 15.4 3l-.5 1a15.2 15.2 0 0 0-5.8 0l-.5-1a16.8 16.8 0 0 0-4.1 1.4C1.8 7.1 1.1 9.8.8 12.4c1.8 1.3 3.6 2.1 5.5 2.7.5-.7.9-1.4 1.2-2.1-.7-.3-1.3-.6-1.9-1 .2-.2.4-.3.6-.5 3.7 1.7 7.7 1.7 11.4 0 .2.2.4.3.6.5-.6.4-1.2.7-1.9 1 .3.7.7 1.4 1.2 2.1 1.9-.6 3.7-1.4 5.5-2.7-.3-2.6-1-5.3-3.5-8ZM8.7 12.2c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Zm6.6 0c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2Z"/>
                 </svg>
 
-
-                <div>
-
-                    <strong>
-                        YouTube
-                    </strong>
-
-                    <span>
-                        DEADEYE Gaming
-                    </span>
-
-                </div>
+                Discord
 
             </a>
 
 
-
-            <!-- INSTAGRAM -->
-
             <a
-                href="https://www.instagram.com/deadeye_gamingx/"
+                class="btn btn-dark"
+                href="https://www.instagram.com/deadeye_gamingx?igsh=MWoyNXdzd2N6emxrMg%3D%3D&utm_source=qr"
                 target="_blank"
-                rel="noopener"
-                class="social-card">
+                rel="noopener noreferrer"
+            >
 
-                <svg viewBox="0 0 24 24">
-
-                    <path d="M7.2 2h9.6A5.2 5.2 0 0 1 22 7.2v9.6a5.2 5.2 0 0 1-5.2 5.2H7.2A5.2 5.2 0 0 1 2 16.8V7.2A5.2 5.2 0 0 1 7.2 2Zm0 2A3.2 3.2 0 0 0 4 7.2v9.6A3.2 3.2 0 0 0 7.2 20h9.6a3.2 3.2 0 0 0 3.2-3.2V7.2A3.2 3.2 0 0 0 16.8 4H7.2Zm9.05 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
-
+                <svg class="social-icon" viewBox="0 0 24 24">
+                    <path d="M7.2 2h9.6A5.2 5.2 0 0 1 22 7.2v9.6a5.2 5.2 0 0 1-5.2 5.2H7.2A5.2 5.2 0 0 1 2 16.8V7.2A5.2 5.2 0 0 1 7.2 2Zm0 2A3.2 3.2 0 0 0 4 7.2v9.6A3.2 3.2 0 0 0 7.2 20h9.6a3.2 3.2 0 0 0 3.2-3.2V7.2A3.2 3.2 0 0 0 16.8 4H7.2Zm9.9 1.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0-0-6Z"/>
                 </svg>
 
-
-                <div>
-
-                    <strong>
-                        Instagram
-                    </strong>
-
-                    <span>
-                        @deadeye_gamingx
-                    </span>
-
-                </div>
+                Instagram
 
             </a>
 
@@ -2296,416 +1679,290 @@ footer p{
 </section>
 
 
+<!-- BACK TO TOP -->
 
-<!-- ========================================================
-     FOOTER
-========================================================= -->
+<a
+    class="top"
+    id="top"
+    href="#home"
+>
+    ↑
+</a>
+
+
+<!-- FOOTER -->
 
 <footer>
 
-    <img
-        class="footer-logo"
-        src="deadeye-logo.png"
-        alt="DEADEYE X GAMING">
-
-
-    <h3>
-        DEADEYE X GAMING
-    </h3>
-
-
     <p>
-        Official website of DEADEYE X GAMING.
+        © <span id="year"></span>
+        <strong>DEADEYE X GAMING</strong>
     </p>
 
+    <p style="margin-top:8px">
+        Built for
+        <span>DEADEYE'S COMMUNITY</span>
+        ❤️
+    </p>
 
     <div class="footer-links">
 
-        <a href="#home">
-            Home
-        </a>
+        <a href="#home">Home</a>
 
-        <a href="#about">
-            About
-        </a>
+        <a href="#about">About</a>
 
-        <a href="#youtube">
-            YouTube
-        </a>
+        <a href="#youtube">YouTube</a>
 
-        <a href="#community">
-            Community
-        </a>
+        <a href="#community">Community</a>
 
-        <a href="#minecraft">
-            Minecraft
-        </a>
+        <a href="#bandhilki">Bandhilki SMP</a>
 
-        <a href="#bandhilki">
-            Bandhilki SMP
-        </a>
+        <a href="#events">Events</a>
 
     </div>
-
-
-    <p>
-        © 2026 DEADEYE X GAMING • All Rights Reserved
-    </p>
 
 </footer>
 
 
-
-<!-- ========================================================
-     JAVASCRIPT
-========================================================= -->
-
 <script>
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+/* MOBILE MENU */
 
-const menuBtn =
-    document.getElementById("menuBtn");
+const menu =
+    document.getElementById("menu");
 
 const navLinks =
     document.getElementById("navLinks");
 
+menu.addEventListener("click",function(){
 
-menuBtn.addEventListener(
-    "click",
-    function(){
+    navLinks.classList.toggle("open");
 
-        navLinks.classList.toggle("open");
+    menu.textContent =
+        navLinks.classList.contains("open")
+        ? "✕"
+        : "☰";
 
-        menuBtn.textContent =
-            navLinks.classList.contains("open")
-                ? "✕"
-                : "☰";
-
-    }
-);
+});
 
 
 document
     .querySelectorAll(".nav-links a")
     .forEach(function(link){
 
-        link.addEventListener(
-            "click",
-            function(){
+        link.addEventListener("click",function(){
 
-                navLinks.classList.remove("open");
+            navLinks.classList.remove("open");
 
-                menuBtn.textContent = "☰";
+            menu.textContent="☰";
 
-            }
-        );
+        });
 
     });
 
 
+/* ACTIVE NAV */
 
-/* =========================================================
-   3D MINECRAFT SKIN
-========================================================= */
+const sections =
+    document.querySelectorAll("section[id]");
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
+const navItems =
+    document.querySelectorAll(".nav-links a");
 
-        const canvas =
-            document.getElementById(
-                "skin_container"
-            );
+const sectionObserver =
+    new IntersectionObserver(
+        function(entries){
 
+            entries.forEach(function(entry){
 
-        if(!canvas){
+                if(entry.isIntersecting){
 
-            console.error(
-                "DEADEYE 3D: canvas not found."
-            );
+                    navItems.forEach(
+                        function(a){
+                            a.classList.remove("active");
+                        }
+                    );
 
-            return;
+                    const active =
+                        document.querySelector(
+                            '.nav-links a[href="#' +
+                            entry.target.id +
+                            '"]'
+                        );
 
-        }
-
-
-        const skinURL =
-            "./deadeye-skin.png";
-
-
-        let viewer = null;
-
-
-        function getViewerSize(){
-
-            const wrapper =
-                document.querySelector(
-                    ".hero-skin-wrap"
-                );
-
-
-            if(!wrapper){
-
-                return {
-                    width:340,
-                    height:450
-                };
-
-            }
-
-
-            const rect =
-                wrapper.getBoundingClientRect();
-
-
-            return {
-
-                width:
-                    Math.max(
-                        280,
-                        Math.floor(rect.width)
-                    ),
-
-                height:
-                    Math.max(
-                        400,
-                        Math.floor(rect.height)
-                    )
-
-            };
-
-        }
-
-
-
-        function createSkinViewer(){
-
-            if(
-                typeof skinview3d ===
-                "undefined"
-            ){
-
-                console.error(
-                    "DEADEYE 3D: SkinView3D failed to load."
-                );
-
-                return;
-
-            }
-
-
-            const size =
-                getViewerSize();
-
-
-            try{
-
-                viewer =
-                    new skinview3d.SkinViewer({
-
-                        canvas:canvas,
-
-                        width:size.width,
-
-                        height:size.height,
-
-                        skin:skinURL
-
-                    });
-
-
-                /*
-                 * CAMERA
-                 */
-
-                viewer.fov = 45;
-
-                viewer.zoom = 0.72;
-
-
-                /*
-                 * LIGHT
-                 */
-
-                viewer.globalLight.intensity = 2.8;
-
-                viewer.cameraLight.intensity = 0.7;
-
-
-                /*
-                 * NO AUTO ROTATION
-                 */
-
-                viewer.autoRotate = false;
-
-
-                /*
-                 * TRANSPARENT BACKGROUND
-                 */
-
-                viewer.background = null;
-
-
-                /*
-                 * WALKING / IDLE ANIMATION
-                 */
-
-                if(
-                    typeof skinview3d.WalkingAnimation
-                    !== "undefined"
-                ){
-
-                    viewer.animation =
-                        new skinview3d.WalkingAnimation();
-
-                    viewer.animation.speed = 0.45;
+                    if(active){
+                        active.classList.add("active");
+                    }
 
                 }
 
+            });
 
-                /*
-                 * LOAD SKIN EXPLICITLY
-                 */
-
-                viewer
-                    .loadSkin(skinURL)
-                    .then(function(){
-
-                        console.log(
-                            "DEADEYE 3D: Skin loaded successfully."
-                        );
-
-                    })
-                    .catch(function(error){
-
-                        console.error(
-                            "DEADEYE 3D: Skin loading error:",
-                            error
-                        );
-
-                    });
-
-
-                resizeViewer();
-
-            }
-
-            catch(error){
-
-                console.error(
-                    "DEADEYE 3D: Viewer creation error:",
-                    error
-                );
-
-            }
-
+        },
+        {
+            rootMargin:"-35% 0px -55% 0px"
         }
+    );
+
+sections.forEach(function(section){
+    sectionObserver.observe(section);
+});
 
 
+/* BACK TO TOP */
 
-        function resizeViewer(){
+const topButton =
+    document.getElementById("top");
 
-            if(!viewer){
+window.addEventListener(
+    "scroll",
+    function(){
 
-                return;
-
-            }
-
-
-            const size =
-                getViewerSize();
-
-
-            viewer.width =
-                size.width;
-
-            viewer.height =
-                size.height;
-
-        }
-
-
-
-        /*
-         * WAIT FOR MOBILE LAYOUT
-         */
-
-        requestAnimationFrame(
-            function(){
-
-                requestAnimationFrame(
-                    function(){
-
-                        setTimeout(
-                            createSkinViewer,
-                            150
-                        );
-
-                    }
-                );
-
-            }
+        topButton.classList.toggle(
+            "show",
+            window.scrollY > 500
         );
 
-
-
-        /*
-         * WINDOW RESIZE
-         */
-
-        let resizeTimer;
-
-
-        window.addEventListener(
-            "resize",
-            function(){
-
-                clearTimeout(
-                    resizeTimer
-                );
-
-
-                resizeTimer =
-                    setTimeout(
-                        resizeViewer,
-                        120
-                    );
-
-            },
-            {
-                passive:true
-            }
-        );
-
-
-
-        /*
-         * ORIENTATION CHANGE
-         */
-
-        window.addEventListener(
-            "orientationchange",
-            function(){
-
-                setTimeout(
-                    resizeViewer,
-                    400
-                );
-
-            },
-            {
-                passive:true
-            }
-        );
-
-    }
+    },
+    {passive:true}
 );
 
-</script>
 
+/* REVEAL */
+
+const revealObserver =
+    new IntersectionObserver(
+        function(entries){
+
+            entries.forEach(function(entry){
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("visible");
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(function(el){
+
+        revealObserver.observe(el);
+
+    });
+
+
+/* YEAR */
+
+document
+    .getElementById("year")
+    .textContent =
+        new Date().getFullYear();
+
+
+/* =================================================
+   3D MINECRAFT SKIN
+   ================================================= */
+
+const canvas =
+    document.getElementById("skin_container");
+
+if(
+    canvas &&
+    window.skinview3d
+){
+
+    const viewer =
+        new skinview3d.SkinViewer({
+
+            canvas:canvas,
+
+            width:
+                canvas.clientWidth || 610,
+
+            height:
+                canvas.clientHeight || 720,
+
+            skin:
+                "deadeye-skin.png"
+
+        });
+
+
+    viewer.fov = 48;
+
+    viewer.zoom = 0.72;
+
+    /*
+       No automatic rotation.
+       User can drag the model with mouse
+       or touch on mobile.
+    */
+
+    viewer.autoRotate = false;
+
+
+    /* LIGHT */
+
+    viewer.cameraLight.intensity = .7;
+
+    viewer.globalLight.intensity = 2.2;
+
+
+    /* WALKING ANIMATION */
+
+    viewer.animation =
+        new skinview3d.WalkingAnimation();
+
+    viewer.animation.speed =
+        .65;
+
+
+    /* RESPONSIVE */
+
+    function resizeViewer(){
+
+        const rect =
+            canvas.getBoundingClientRect();
+
+        viewer.width =
+            Math.max(
+                1,
+                Math.round(rect.width)
+            );
+
+        viewer.height =
+            Math.max(
+                1,
+                Math.round(rect.height)
+            );
+
+    }
+
+
+    window.addEventListener(
+        "resize",
+        resizeViewer,
+        {passive:true}
+    );
+
+
+    resizeViewer();
+
+}
+
+</script>
 
 </body>
 </html>
