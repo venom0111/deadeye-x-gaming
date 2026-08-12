@@ -33,11 +33,12 @@
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
 html{scroll-padding-top:90px}
 body{
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Inter,"Segoe UI",Arial,Helvetica,sans-serif;
     background:var(--bg);
     color:var(--text);
     overflow-x:hidden;
     line-height:1.5;
+    text-rendering:optimizeLegibility;
 }
 body::before,body::after{
     content:"";position:fixed;pointer-events:none;z-index:-3;
@@ -105,6 +106,7 @@ section{padding:110px 6%;position:relative}
     text-decoration:none;font-size:13px;font-weight:900;
     transition:.25s;border:1px solid transparent;
 }
+.btn .platform-icon{width:17px;height:17px;display:block;fill:currentColor;flex:0 0 auto}
 .btn:hover{transform:translateY(-3px)}
 .btn-red{
     color:#fff;background:linear-gradient(135deg,var(--red),var(--red2));
@@ -212,7 +214,7 @@ section{padding:110px 6%;position:relative}
 .card:hover{transform:translateY(-7px);border-color:rgba(224,0,32,.38)}
 .card-icon{font-size:30px;margin-bottom:18px}
 .card h3{font-size:19px;margin-bottom:9px}
-.card p{color:#7e7e88;font-size:14px;line-height:1.7}
+.card p{color:#9898a3;font-size:14px;line-height:1.7}
 
 /* ABOUT */
 .about-box{
@@ -235,7 +237,7 @@ section{padding:110px 6%;position:relative}
     font-size:11px;font-weight:900;letter-spacing:.8px;
     margin-bottom:20px;
 }
-.about-copy{color:#999;line-height:1.85}
+.about-copy{color:#aaa;line-height:1.85}
 .about-copy strong{color:#fff}
 
 /* YOUTUBE */
@@ -284,7 +286,7 @@ section{padding:110px 6%;position:relative}
     box-shadow:0 20px 45px rgba(0,0,0,.35);
 }
 .community-box h3{font-size:35px;margin-bottom:14px}
-.community-box p{color:#999;line-height:1.8;margin-bottom:22px}
+.community-box p{color:#aaa;line-height:1.8;margin-bottom:22px}
 .feature-list{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
 .feature-list span{
     padding:8px 10px;border-radius:9px;
@@ -343,7 +345,7 @@ section{padding:110px 6%;position:relative}
 }
 .smp-content h3{font-size:42px;margin:14px 0 10px}
 .smp-content h3 span{color:#c59cff}
-.smp-content p{color:#999;line-height:1.8;margin-bottom:20px}
+.smp-content p{color:#aaa;line-height:1.8;margin-bottom:20px}
 .smp-meta{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
 .smp-meta span{
     padding:8px 11px;border-radius:9px;
@@ -358,6 +360,11 @@ section{padding:110px 6%;position:relative}
 
 /* SOCIALS */
 .socials{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.socials .btn{gap:9px}
+.platform-icon{width:18px;height:18px;display:block;fill:currentColor;flex:0 0 auto}
+.socials .youtube-icon{color:#fff}
+.socials .discord-icon{color:#c7ccff}
+.socials .instagram-icon{color:#ffb2c0}
 
 /* FOOTER */
 footer{
@@ -408,9 +415,6 @@ footer span{color:var(--red2)}
 .btn{transition:transform .2s ease,background .2s ease,border-color .2s ease,box-shadow .2s ease}
 .btn:hover{transform:translateY(-2px)}
 .btn:active{transform:translateY(0) scale(.98)}
-.card,.event,.about-box,.community-box,.smp-box,.youtube-box,.server{
-    transform:translateZ(0);
-}
 @media(max-width:900px){
     .hero-aura{width:390px;height:390px}
     .hero-skin{width:470px;height:570px}
@@ -430,8 +434,8 @@ footer span{color:var(--red2)}
 .youtube-box{
     position:relative;
     overflow:hidden;
-    transform:translate3d(0,0,0) scale(1);
-    will-change:transform;
+    /* Avoid GPU text rasterization, which can make type look soft. */
+    will-change:auto;
     transition:
         transform 0.85s cubic-bezier(0.16,1,0.3,1),
         border-color 0.85s ease,
@@ -441,7 +445,7 @@ footer span{color:var(--red2)}
 /* Smooth POP only — no shine / hover sweep */
 .card:hover,
 .event:hover{
-    transform:translate3d(0,-7px,0) scale(1.012);
+    transform:translateY(-7px);
     border-color:rgba(224,0,32,.58);
     box-shadow:
         0 18px 40px rgba(0,0,0,.28),
@@ -452,7 +456,7 @@ footer span{color:var(--red2)}
 .about-box:hover,
 .community-box:hover,
 .youtube-box:hover{
-    transform:translate3d(0,-4px,0) scale(1.006);
+    transform:translateY(-4px);
     border-color:rgba(224,0,32,.45);
     box-shadow:0 16px 36px rgba(0,0,0,.23);
 }
@@ -576,8 +580,8 @@ footer span{color:var(--red2)}
             </p>
 
             <div class="btns">
-                <a class="btn btn-red" href="https://discord.gg/PNeCwRrtMS" target="_blank" rel="noopener noreferrer">💬 Join Discord</a>
-                <a class="btn btn-dark" href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7" target="_blank" rel="noopener noreferrer">▶ Visit YouTube</a>
+                <a class="btn btn-red" href="https://discord.gg/PNeCwRrtMS" target="_blank" rel="noopener noreferrer"><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.5A16.2 16.2 0 0 0 16.4 3l-.5 1a14.9 14.9 0 0 0-7.8 0l-.5-1a16.1 16.1 0 0 0-3.9 1.5C1.2 8.3.5 12 .8 15.7A16 16 0 0 0 5.6 18l1.2-1.7a9.4 9.4 0 0 1-1.9-.9l.5-.4c3.7 1.7 9.5 1.7 13.2 0l.5.4c-.6.4-1.2.7-1.9.9l1.2 1.7a16 16 0 0 0 4.8-2.3c.4-4.3-.7-8-2.9-11.2ZM8.7 13.4c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm6.6 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/></svg>Join Discord</a>
+                <a class="btn btn-dark" href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7" target="_blank" rel="noopener noreferrer"><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.9 12l-6.3 3.6Z"/></svg>Visit YouTube</a>
             </div>
 
             <div class="hero-stats">
@@ -667,7 +671,7 @@ footer span{color:var(--red2)}
             </p>
 
             <div class="btns" style="justify-content:center">
-                <a class="btn btn-red" href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7" target="_blank" rel="noopener noreferrer">🔴 Visit YouTube</a>
+                <a class="btn btn-red" href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7" target="_blank" rel="noopener noreferrer"><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.9 12l-6.3 3.6Z"/></svg>Visit YouTube</a>
             </div>
         </div>
     </div>
@@ -705,7 +709,7 @@ footer span{color:var(--red2)}
                 </p>
 
                 <a class="btn btn-red" href="https://discord.gg/PNeCwRrtMS" target="_blank" rel="noopener noreferrer">
-                    💬 Join DEADEYE'S COMMUNITY
+                    <svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.5A16.2 16.2 0 0 0 16.4 3l-.5 1a14.9 14.9 0 0 0-7.8 0l-.5-1a16.1 16.1 0 0 0-3.9 1.5C1.2 8.3.5 12 .8 15.7A16 16 0 0 0 5.6 18l1.2-1.7a9.4 9.4 0 0 1-1.9-.9l.5-.4c3.7 1.7 9.5 1.7 13.2 0l.5.4c-.6.4-1.2.7-1.9.9l1.2 1.7a16 16 0 0 0 4.8-2.3c.4-4.3-.7-8-2.9-11.2ZM8.7 13.4c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm6.6 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/></svg>Join DEADEYE'S COMMUNITY
                 </a>
             </div>
         </div>
@@ -766,9 +770,9 @@ footer span{color:var(--red2)}
                 </div>
 
                 <div class="btns">
-                    <a class="btn btn-purple" href="https://youtube.com/playlist?list=PLbCYPd-T7UbaTIg1RRE1XoxLjYRl9Z2oY&si=VBra6l3-eNl9wG6V" target="_blank" rel="noopener noreferrer">▶ Watch Bandhilki SMP</a>
-                    <a class="btn btn-dark" href="https://discord.gg/Kv2D5CjBSf" target="_blank" rel="noopener noreferrer">💬 Join Bandhilki Discord</a>
-                    <a class="btn btn-dark" href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7" target="_blank" rel="noopener noreferrer">📺 More Videos</a>
+                    <a class="btn btn-purple" href="https://youtube.com/playlist?list=PLbCYPd-T7UbaTIg1RRE1XoxLjYRl9Z2oY&si=VBra6l3-eNl9wG6V" target="_blank" rel="noopener noreferrer"><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.9 12l-6.3 3.6Z"/></svg>Watch Bandhilki SMP</a>
+                    <a class="btn btn-dark" href="https://discord.gg/Kv2D5CjBSf" target="_blank" rel="noopener noreferrer"><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.5A16.2 16.2 0 0 0 16.4 3l-.5 1a14.9 14.9 0 0 0-7.8 0l-.5-1a16.1 16.1 0 0 0-3.9 1.5C1.2 8.3.5 12 .8 15.7A16 16 0 0 0 5.6 18l1.2-1.7a9.4 9.4 0 0 1-1.9-.9l.5-.4c3.7 1.7 9.5 1.7 13.2 0l.5.4c-.6.4-1.2.7-1.9.9l1.2 1.7a16 16 0 0 0 4.8-2.3c.4-4.3-.7-8-2.9-11.2ZM8.7 13.4c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm6.6 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/></svg>Join Bandhilki Discord</a>
+                    <a class="btn btn-dark" href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7" target="_blank" rel="noopener noreferrer"><svg class="platform-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.9 12l-6.3 3.6Z"/></svg>More Videos</a>
                 </div>
             </div>
         </div>
@@ -816,9 +820,18 @@ footer span{color:var(--red2)}
         </div>
 
         <div class="socials reveal">
-            <a class="btn btn-red" href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
-            <a class="btn btn-dark" href="https://discord.gg/PNeCwRrtMS" target="_blank" rel="noopener noreferrer">💬 Discord</a>
-            <a class="btn btn-dark" href="https://www.instagram.com/deadeye_gamingx?igsh=MWoyNXdzd2N6emxrMg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+            <a class="btn btn-red" href="https://youtube.com/@deadeyexgaming?si=mldYcbXVDrLqTSy7" target="_blank" rel="noopener noreferrer">
+                <svg class="platform-icon youtube-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.9 12l-6.3 3.6Z"/></svg>
+                YouTube
+            </a>
+            <a class="btn btn-dark" href="https://discord.gg/PNeCwRrtMS" target="_blank" rel="noopener noreferrer">
+                <svg class="platform-icon discord-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.3 4.5A16.2 16.2 0 0 0 16.4 3l-.5 1a14.9 14.9 0 0 0-7.8 0l-.5-1a16.1 16.1 0 0 0-3.9 1.5C1.2 8.3.5 12 .8 15.7A16 16 0 0 0 5.6 18l1.2-1.7a9.4 9.4 0 0 1-1.9-.9l.5-.4c3.7 1.7 9.5 1.7 13.2 0l.5.4c-.6.4-1.2.7-1.9.9l1.2 1.7a16 16 0 0 0 4.8-2.3c.4-4.3-.7-8-2.9-11.2ZM8.7 13.4c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm6.6 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/></svg>
+                Discord
+            </a>
+            <a class="btn btn-dark" href="https://www.instagram.com/deadeye_gamingx?igsh=MWoyNXdzd2N6emxrMg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
+                <svg class="platform-icon instagram-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 2h9.6A5.2 5.2 0 0 1 22 7.2v9.6a5.2 5.2 0 0 1-5.2 5.2H7.2A5.2 5.2 0 0 1 2 16.8V7.2A5.2 5.2 0 0 1 7.2 2Zm-.2 2A3 3 0 0 0 4 7v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.8 1.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 6.5A5.5 5.5 0 1 1 6.5 12 5.5 5.5 0 0 1 12 6.5Zm0 2A3.5 3.5 0 1 0 15.5 12 3.5 3.5 0 0 0 12 8.5Z"/></svg>
+                Instagram
+            </a>
         </div>
     </div>
 </section>
